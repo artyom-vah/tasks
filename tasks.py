@@ -1,6 +1,46 @@
 
+#***********************************************************************************************************************
 '''
-# 20. Valid Parentheses (Допустимые  скобки)
+1. Two Sum
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+
+Учитывая массив целых чисел nums и целочисленное целевое значение, верните индексы двух чисел таким образом, чтобы они в сумме равнялись целевому значению.
+Вы можете предположить, что каждый входной сигнал будет иметь ровно одно решение, и вы не можете использовать один и тот же элемент дважды.
+Вы можете вернуть ответ в любом порядке.
+
+Example 1:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Example 2:
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Example 3:
+Input: nums = [3,3], target = 6
+Output: [0,1]
+'''
+class Solution(object):
+    def twoSum(self, arr, target):
+        for i in range(0, len(arr)):
+            for j in range(i + 1, len(arr)):
+                if arr[i] + arr[j] == target:
+                    return [i, j]
+        return None
+
+
+nums = [3, 2, 4]
+target = 6
+
+obj = Solution()
+print(obj.twoSum(nums, target))
+
+#***********************************************************************************************************************
+'''
+20. Valid Parentheses (Допустимые  скобки)
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 An input string is valid if:
 Open brackets must be closed by the same type of brackets.
@@ -23,8 +63,9 @@ Output: true
 
 Example 3:
 Input: s = "(]"
-Output: false
-'''
+Output: false'''
+
+
 
 class Solution(object):
     def isValid(self, s: str) -> bool:
@@ -42,5 +83,7 @@ class Solution(object):
 
 
 obj1 = Solution()
-print(obj1.isValid('(])'))
+print(obj1.isValid('(])')) # False
+print(obj1.isValid('()[]{}')) # True
+#***********************************************************************************************************************
 
