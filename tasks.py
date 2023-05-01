@@ -1,4 +1,15 @@
 # ***********************************************************************************************************************
+''''
+
+)
+
+1) 1. Two Sum
+2) 9. Palindrome Number (Палиндромное число)
+3) 13. Roman to Integer (От латинского к целому числу)
+4) 14. Longest Common Prefix (Самый длинный распространенный префикс)
+5) 20. Valid Parentheses (Допустимые  скобки)
+100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
+'''
 '''
 1. Two Sum
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -22,8 +33,6 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
 '''
-
-
 class Solution(object):
     def twoSum(self, arr, target):
         for i in range(0, len(arr)):
@@ -59,7 +68,6 @@ Input: x = 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 '''
-
 class Solution(object):
     def isPalindrome(self, x):
         return False if x < 0 else str(x) == str(x)[::-1]
@@ -70,7 +78,7 @@ print(obj.isPalindrome(1221))
 
 # ***********************************************************************************************************************
 '''
-13. Roman to Integer
+13. Roman to Integer (От латинского к целому числу)
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value
@@ -191,7 +199,7 @@ Input: s = "(]"
 Output: false'''
 
 
-class Solution(object):
+class Solution():
     def isValid(self, s: str) -> bool:
         d = {'(': ')', '[': ']', '{': '}'}
         l = []
@@ -210,5 +218,51 @@ obj = Solution()
 print(obj.isValid('(])'))  # False
 print(obj.isValid('()[]{}'))  # True
 
+#***********************************************************************************************************************
+'''
+1491. Average Salary Excluding the Minimum and Maximum Salary
+You are given an array of unique integers salary where salary[i] is the salary of the ith employee.
+Return the average salary of employees excluding the minimum and maximum salary. Answers within 10-5 of the actual answer will be accepted.
+
+Example 1:
+Input: salary = [4000,3000,1000,2000]
+Output: 2500.00000
+Explanation: Minimum salary and maximum salary are 1000 and 4000 respectively.
+Average salary excluding minimum and maximum salary is (2000+3000) / 2 = 2500
+
+Example 2:
+Input: salary = [1000,2000,3000]
+Output: 2000.00000
+Explanation: Minimum salary and maximum salary are 1000 and 3000 respectively.
+Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
+Constraints:
+
+Вам выдается массив уникальных целых чисел salary, где salary[i] - это зарплата i-го сотрудника.
+Верните среднюю заработную плату сотрудников без учета минимальной и максимальной заработной платы. Будут приняты ответы в пределах 10-5 от фактического ответа.
+
+Пример 1:
+Входные данные: зарплата = [4000,3000,1000,2000]
+Выход: 2500.00000
+Пояснение: Минимальная и максимальная заработная плата составляют 1000 и 4000 долларов соответственно.
+Средняя заработная плата без учета минимальной и максимальной составляет (2000+3000) / 2 = 2500
+
+Пример 2:
+Входные данные: зарплата = [1000,2000,3000]
+Выход: 2000.00000
+Пояснение: Минимальная и максимальная заработная плата составляют 1000 и 3000 долларов соответственно.
+Средняя заработная плата без учета минимальной и максимальной составляет (2000) / 1 = 2000
+
+'''
+class Solution():
+    def average(self, salary: list[int]) -> float:
+        salary.sort()
+        # return (sum(salary)-salary[0]-salary[-1])/(len(salary)-2)
+        # return (sum(salary) - max(salary) - min(salary))/(len(salary)-2)
+        return sum(salary[1:-1]) / (len(salary) - 2)
+
+
+salary = [4000,3000,1000,2000]
+obj = Solution()
+print(obj.average(salary)) # 2500.0
 #***********************************************************************************************************************
 #***********************************************************************************************************************
