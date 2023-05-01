@@ -8,6 +8,7 @@
 3) 13. Roman to Integer (От латинского к целому числу)
 4) 14. Longest Common Prefix (Самый длинный распространенный префикс)
 5) 20. Valid Parentheses (Допустимые  скобки)
+6) 26. Remove Duplicates from Sorted Array (Удалить дубликаты из отсортированного массива)
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -218,6 +219,56 @@ obj = Solution()
 print(obj.isValid('(])'))  # False
 print(obj.isValid('()[]{}'))  # True
 
+
+
+#***********************************************************************************************************************
+'''
+26. Remove Duplicates from Sorted Array (Удалить дубликаты из отсортированного массива)
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
+Return k.
+Custom Judge:
+The judge will test your solution with the following code:
+
+Учитывая целочисленный массив nums, отсортированный в порядке неубывания, удалите дубликаты на месте таким образом, чтобы каждый уникальный элемент появлялся только один раз. Относительный порядок элементов должен быть сохранен неизменным. Затем верните количество уникальных элементов в nums.
+Считайте, что количество уникальных элементов nums равно k, чтобы быть принятым, вам нужно выполнить следующие действия:
+Измените массив nums таким образом, чтобы первые k элементов nums содержали уникальные элементы в том порядке, в котором они присутствовали в nums изначально. Остальные элементы nums не важны так же, как и размер nums.
+Верните k.
+Судья по обычаю:
+Судья протестирует ваше решение с помощью следующего кода:
+
+
+Example 1:
+Input: nums = [1,1,2]
+Output: 2, nums = [1,2,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+Example 2:
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+'''
+class Solution():
+    def removeDuplicates(self, nums):
+        # return len(set(nums))
+        replace = 1
+        for i in range(1, len(nums)):
+            if nums[i-1] != nums[i]:
+                nums[replace] = nums[i]
+                replace += 1
+        return replace
+
+
+
+
+nums = [0,0,1,1,1,2,2,3,3,4]
+# nums = [1,1,2]
+obj = Solution()
+print(obj.removeDuplicates(nums))
 #***********************************************************************************************************************
 '''
 1491. Average Salary Excluding the Minimum and Maximum Salary
