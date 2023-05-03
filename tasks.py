@@ -1,14 +1,13 @@
 # ***********************************************************************************************************************
 ''''
 
-)
-
 1) 1. Two Sum
 2) 9. Palindrome Number (Палиндромное число)
 3) 13. Roman to Integer (От латинского к целому числу)
 4) 14. Longest Common Prefix (Самый длинный распространенный префикс)
 5) 20. Valid Parentheses (Допустимые  скобки)
 6) 26. Remove Duplicates from Sorted Array (Удалить дубликаты из отсортированного массива)
+7) 27. Remove Element (Удалить элемент)
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -34,6 +33,8 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
 '''
+
+
 class Solution(object):
     def twoSum(self, arr, target):
         for i in range(0, len(arr)):
@@ -49,7 +50,7 @@ target = 6
 obj = Solution()
 print(obj.twoSum(nums, target))
 
-#***********************************************************************************************************************
+# ***********************************************************************************************************************
 '''
 9. Palindrome Number
 Given an integer x, return true if x is a palindrome, and false otherwise.
@@ -69,6 +70,8 @@ Input: x = 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 '''
+
+
 class Solution(object):
     def isPalindrome(self, x):
         return False if x < 0 else str(x) == str(x)[::-1]
@@ -117,6 +120,7 @@ Input: s = "MCMXCIV"
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 '''
+
 class Solution(object):
     def romanToInt(self, s):
         roman = {
@@ -130,14 +134,15 @@ class Solution(object):
         }
         total = 0
         for i in range(len(s) - 1):
-            if roman[s[i]] < roman[s[i+1]]:
+            if roman[s[i]] < roman[s[i + 1]]:
                 total -= roman[s[i]]
             else:
                 total += roman[s[i]]
         return total + roman[s[-1]]
 
+
 obj = Solution()
-print(obj.romanToInt('XVII')) # 17
+print(obj.romanToInt('XVII'))  # 17
 
 # ***********************************************************************************************************************
 '''
@@ -155,6 +160,7 @@ Input: strs = ["dog","racecar","car"]
 Output: ""
 Explanation: There is no common prefix among the input strings.
 '''
+
 class Solution:
     def longestCommonPrefix(self, strs):
         if len(strs) == 0:
@@ -219,9 +225,7 @@ obj = Solution()
 print(obj.isValid('(])'))  # False
 print(obj.isValid('()[]{}'))  # True
 
-
-
-#***********************************************************************************************************************
+# ***********************************************************************************************************************
 '''
 26. Remove Duplicates from Sorted Array (Удалить дубликаты из отсортированного массива)
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
@@ -252,24 +256,73 @@ Explanation: Your function should return k = 5, with the first five elements of 
 It does not matter what you leave beyond the returned k (hence they are underscores).
 
 '''
+
+
 class Solution():
     def removeDuplicates(self, nums):
         # return len(set(nums))
         replace = 1
         for i in range(1, len(nums)):
-            if nums[i-1] != nums[i]:
+            if nums[i - 1] != nums[i]:
                 nums[replace] = nums[i]
                 replace += 1
         return replace
 
 
-
-
-nums = [0,0,1,1,1,2,2,3,3,4]
+nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 # nums = [1,1,2]
 obj = Solution()
 print(obj.removeDuplicates(nums))
-#***********************************************************************************************************************
+# ***********************************************************************************************************************
+'''
+27. Remove Element
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order 
+of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following 
+things:
+Change the array nums such that the first k elements of nums contain the elements which are not equal to val.
+The remaining elements of nums are not important as well as the size of nums.
+
+Учитывая целочисленный массив nums и целое значение val, удалите все вхождения val в nums на месте. Порядок
+элементов может быть изменен. Затем верните количество элементов в nums, которые не равны val.
+Учтите, что количество элементов в nums, которые не равны val, равно k, чтобы их приняли, вам нужно выполнить следующие
+действия:
+Измените массив nums таким образом, чтобы первые k элементов nums содержали элементы, которые не равны val.
+Остальные элементы nums не важны так же, как и размер nums.
+
+Example 1:
+Input: nums = [3,2,2,3], val = 3
+Output: 2, nums = [2,2,_,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+Объяснение: Ваша функция должна возвращать k = 2, причем первые два элемента nums равны 2.
+Не имеет значения, что вы оставляете за пределами возвращаемого k (следовательно, они являются символами подчеркивания).
+
+Example 2:
+Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Output: 5, nums = [0,1,4,0,3,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+Note that the five elements can be returned in any order.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+Объяснение: Ваша функция должна возвращать k = 5, причем первые пять элементов nums содержат 0, 0, 1, 3 и 4.
+Обратите внимание, что пять элементов могут быть возвращены в любом порядке.
+Не имеет значения, что вы оставляете за пределами возвращаемого k (следовательно, они являются символами подчеркивания).
+
+'''
+class Solution:
+    def removeElement(self, nums: list[int], val: int) -> int:
+        while val in nums:
+            nums.remove(val)
+        return len(nums)
+
+
+nums = [0, 1, 3, 4, 3]
+val = 3
+o = Solution()
+print(o.removeElement(nums, val))
+
+# ***********************************************************************************************************************
+
 '''
 1491. Average Salary Excluding the Minimum and Maximum Salary
 You are given an array of unique integers salary where salary[i] is the salary of the ith employee.
@@ -304,6 +357,8 @@ Constraints:
 Средняя заработная плата без учета минимальной и максимальной составляет (2000) / 1 = 2000
 
 '''
+
+
 class Solution():
     def average(self, salary: list[int]) -> float:
         salary.sort()
@@ -312,8 +367,8 @@ class Solution():
         return sum(salary[1:-1]) / (len(salary) - 2)
 
 
-salary = [4000,3000,1000,2000]
+salary = [4000, 3000, 1000, 2000]
 obj = Solution()
-print(obj.average(salary)) # 2500.0
-#***********************************************************************************************************************
-#***********************************************************************************************************************
+print(obj.average(salary))  # 2500.0
+# ***********************************************************************************************************************
+# ***********************************************************************************************************************
