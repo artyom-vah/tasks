@@ -34,7 +34,6 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 '''
 
-
 class Solution(object):
     def twoSum(self, arr, target):
         for i in range(0, len(arr)):
@@ -46,7 +45,6 @@ class Solution(object):
 
 nums = [3, 2, 4]
 target = 6
-
 obj = Solution()
 print(obj.twoSum(nums, target))
 
@@ -70,7 +68,6 @@ Input: x = 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 '''
-
 
 class Solution(object):
     def isPalindrome(self, x):
@@ -205,7 +202,6 @@ Example 3:
 Input: s = "(]"
 Output: false'''
 
-
 class Solution():
     def isValid(self, s: str) -> bool:
         d = {'(': ')', '[': ']', '{': '}'}
@@ -254,9 +250,7 @@ Input: nums = [0,0,1,1,1,2,2,3,3,4]
 Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
-
 '''
-
 
 class Solution():
     def removeDuplicates(self, nums):
@@ -273,6 +267,7 @@ nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 # nums = [1,1,2]
 obj = Solution()
 print(obj.removeDuplicates(nums))
+
 # ***********************************************************************************************************************
 '''
 27. Remove Element
@@ -307,8 +302,8 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 Объяснение: Ваша функция должна возвращать k = 5, причем первые пять элементов nums содержат 0, 0, 1, 3 и 4.
 Обратите внимание, что пять элементов могут быть возвращены в любом порядке.
 Не имеет значения, что вы оставляете за пределами возвращаемого k (следовательно, они являются символами подчеркивания).
-
 '''
+
 class Solution:
     def removeElement(self, nums: list[int], val: int) -> int:
         while val in nums:
@@ -355,9 +350,7 @@ Constraints:
 Выход: 2000.00000
 Пояснение: Минимальная и максимальная заработная плата составляют 1000 и 3000 долларов соответственно.
 Средняя заработная плата без учета минимальной и максимальной составляет (2000) / 1 = 2000
-
 '''
-
 
 class Solution():
     def average(self, salary: list[int]) -> float:
