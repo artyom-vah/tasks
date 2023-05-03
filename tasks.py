@@ -8,6 +8,8 @@
 5) 20. Valid Parentheses (Допустимые  скобки)
 6) 26. Remove Duplicates from Sorted Array (Удалить дубликаты из отсортированного массива)
 7) 27. Remove Element (Удалить элемент)
+8) 28. Find the Index of the First Occurrence in a String (Найдите индекс первого вхождения в строку)
+9) 35. Search Insert Position (Поиск позиции вставки)
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -317,6 +319,77 @@ o = Solution()
 print(o.removeElement(nums, val))
 
 # ***********************************************************************************************************************
+'''
+28. Find the Index of the First Occurrence in a String
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+Учитывая две строки игла и стог сена, вернуть индекс первого вхождения иглы в стог сена или -1, если игла не является частью стога сена.
+
+Example 1:
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+Explanation: "sad" occurs at index 0 and 6.
+The first occurrence is at index 0, so we return 0.
+
+Example 2:
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+Explanation: "leeto" did not occur in "leetcode", so we return -1.
+'''
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if needle in haystack:
+            return haystack.index(needle)
+        return -1
+
+
+haystack = "sadbutsad"
+needle = "sad"
+obj = Solution()
+print(obj.strStr(haystack, needle))
+
+# ***********************************************************************************************************************
+'''
+35. Search Insert Position
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, 
+return the index where it would be if it were inserted in order.
+You must write an algorithm with O(log n) runtime complexity.
+
+Учитывая отсортированный массив различных целых чисел и целевое значение, вернуть индекс, если цель найдена. Если нет,
+верните индекс туда, где он был бы, если бы он был вставлен по порядку. 
+Вы должны написать алгоритм со сложностью выполнения O(log n).
+
+Example 1:
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+
+Example 2:
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+
+Example 3:
+Input: nums = [1,3,5,6], target = 7
+Output: 4
+'''
+
+class Solution:
+    def searchInsert(self, nums: list[int], target: int) -> int:
+        left = 0
+        right = len(nums)
+        while left < right:
+            mid = (left + right) // 2
+            if target <= nums[mid]:
+                right = mid
+            else:
+                left = mid + 1
+        return left
+
+
+arr = [1, 3, 5, 6]
+t = 2
+obj = Solution()
+print(obj.searchInsert(arr, t))
+
+# ***********************************************************************************************************************
 
 '''
 1491. Average Salary Excluding the Minimum and Maximum Salary
@@ -363,5 +436,6 @@ class Solution():
 salary = [4000, 3000, 1000, 2000]
 obj = Solution()
 print(obj.average(salary))  # 2500.0
+
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
