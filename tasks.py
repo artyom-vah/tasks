@@ -10,6 +10,7 @@
 7) 27. Remove Element (Удалить элемент)
 8) 28. Find the Index of the First Occurrence in a String (Найдите индекс первого вхождения в строку)
 9) 35. Search Insert Position (Поиск позиции вставки)
+10) 58. Length of Last Word (Длина последнего слова)
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -145,10 +146,12 @@ print(obj.romanToInt('XVII'))  # 17
 
 # ***********************************************************************************************************************
 '''
-14. Longest Common Prefix
+14. Longest Common Prefix (Самый длинный распространенный префикс)
 Write a function to find the longest common prefix string amongst an array of strings.
-
 If there is no common prefix, return an empty string "".
+
+Напишите функцию для поиска самой длинной строки общего префикса среди массива строк.
+Если общего префикса нет, верните пустую строку "".
 
 Example 1:
 Input: strs = ["flower","flow","flight"]
@@ -388,6 +391,39 @@ arr = [1, 3, 5, 6]
 t = 2
 obj = Solution()
 print(obj.searchInsert(arr, t))
+
+# ***********************************************************************************************************************
+'''
+58. Length of Last Word 
+Given a string s consisting of words and spaces, return the length of the last word in the string.
+A word is a maximal substring consisting of non-space characters only.
+
+Для заданной строки s, состоящей из слов и пробелов, вернуть длину последнего слова в строке. 
+Слово – это максимальная подстрока состоящая только из не пробельных символов.
+
+Example 1:
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+
+Example 2:
+Input: s = "   fly me   to   the moon  "
+Output: 4
+Explanation: The last word is "moon" with length 4.
+
+Example 3:
+Input: s = "luffy is still joyboy"
+
+Output: 6
+Explanation: The last word is "joyboy" with length 6.
+'''
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.strip().split()[-1])
+
+s1 = "   fly me   to   the moon  "
+obj = Solution()
+print(obj.lengthOfLastWord(s1)) # 4
 
 # ***********************************************************************************************************************
 
