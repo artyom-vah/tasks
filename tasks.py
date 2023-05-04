@@ -431,6 +431,9 @@ print(obj.lengthOfLastWord(s1)) # 4
 1491. Average Salary Excluding the Minimum and Maximum Salary
 You are given an array of unique integers salary where salary[i] is the salary of the ith employee.
 Return the average salary of employees excluding the minimum and maximum salary. Answers within 10-5 of the actual answer will be accepted.
+Вам выдается массив уникальных целых чисел salary, где salary[i] - это зарплата i-го сотрудника.
+Верните среднюю заработную плату сотрудников без учета минимальной и максимальной заработной платы.
+Будут приняты ответы в пределах 10-5 от фактического ответа.
 
 Example 1:
 Input: salary = [4000,3000,1000,2000]
@@ -445,8 +448,7 @@ Explanation: Minimum salary and maximum salary are 1000 and 3000 respectively.
 Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 Constraints:
 
-Вам выдается массив уникальных целых чисел salary, где salary[i] - это зарплата i-го сотрудника.
-Верните среднюю заработную плату сотрудников без учета минимальной и максимальной заработной платы. Будут приняты ответы в пределах 10-5 от фактического ответа.
+
 
 Пример 1:
 Входные данные: зарплата = [4000,3000,1000,2000]
