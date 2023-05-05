@@ -222,7 +222,6 @@ class Solution():
                     return False
         return l == []
 
-
 obj = Solution()
 print(obj.isValid('(])'))  # False
 print(obj.isValid('()[]{}'))  # True
@@ -230,16 +229,21 @@ print(obj.isValid('()[]{}'))  # True
 # ***********************************************************************************************************************
 '''
 26. Remove Duplicates from Sorted Array (Удалить дубликаты из отсортированного массива)
-Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element 
+appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
 Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
-Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present 
+in nums initially. The remaining elements of nums are not important as well as the size of nums.
 Return k.
 Custom Judge:
 The judge will test your solution with the following code:
 
-Учитывая целочисленный массив nums, отсортированный в порядке неубывания, удалите дубликаты на месте таким образом, чтобы каждый уникальный элемент появлялся только один раз. Относительный порядок элементов должен быть сохранен неизменным. Затем верните количество уникальных элементов в nums.
-Считайте, что количество уникальных элементов nums равно k, чтобы быть принятым, вам нужно выполнить следующие действия:
-Измените массив nums таким образом, чтобы первые k элементов nums содержали уникальные элементы в том порядке, в котором они присутствовали в nums изначально. Остальные элементы nums не важны так же, как и размер nums.
+Учитывая целочисленный массив nums, отсортированный в порядке неубывания, удалите дубликаты на месте таким образом,
+чтобы каждый уникальный элемент появлялся только один раз. Относительный порядок элементов должен быть сохранен неизменным. 
+Затем верните количество уникальных элементов в nums. Считайте, что количество уникальных элементов nums равно k, чтобы 
+быть принятым, вам нужно выполнить следующие действия:
+Измените массив nums таким образом, чтобы первые k элементов nums содержали уникальные элементы в том порядке, в котором 
+они присутствовали в nums изначально. Остальные элементы nums не важны так же, как и размер nums.
 Верните k.
 Судья по обычаю:
 Судья протестирует ваше решение с помощью следующего кода:
@@ -316,7 +320,6 @@ class Solution:
             nums.remove(val)
         return len(nums)
 
-
 nums = [0, 1, 3, 4, 3]
 val = 3
 o = Solution()
@@ -339,12 +342,12 @@ Input: haystack = "leetcode", needle = "leeto"
 Output: -1
 Explanation: "leeto" did not occur in "leetcode", so we return -1.
 '''
+
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         if needle in haystack:
             return haystack.index(needle)
         return -1
-
 
 haystack = "sadbutsad"
 needle = "sad"
@@ -386,7 +389,6 @@ class Solution:
             else:
                 left = mid + 1
         return left
-
 
 arr = [1, 3, 5, 6]
 t = 2
@@ -467,7 +469,6 @@ class Solution:
         digits[-1] += 1
         return digits
 
-
 digits = [9, 9]
 obj = Solution()
 print(obj.plusOne(digits)) # [1, 0, 0]
@@ -510,8 +511,6 @@ Output: 2000.00000
 Explanation: Minimum salary and maximum salary are 1000 and 3000 respectively.
 Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 Constraints:
-
-
 
 Пример 1:
 Входные данные: зарплата = [4000,3000,1000,2000]
