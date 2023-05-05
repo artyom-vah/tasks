@@ -46,7 +46,6 @@ class Solution(object):
                     return [i, j]
         return None
 
-
 nums = [3, 2, 4]
 target = 6
 obj = Solution()
@@ -140,7 +139,6 @@ class Solution(object):
             else:
                 total += roman[s[i]]
         return total + roman[s[-1]]
-
 
 obj = Solution()
 print(obj.romanToInt('XVII'))  # 17
