@@ -11,6 +11,7 @@
 8) 28. Find the Index of the First Occurrence in a String (Найдите индекс первого вхождения в строку)
 9) 35. Search Insert Position (Поиск позиции вставки)
 10) 58. Length of Last Word (Длина последнего слова)
+11) 66. Plus One
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -426,7 +427,69 @@ obj = Solution()
 print(obj.lengthOfLastWord(s1)) # 4
 
 # ***********************************************************************************************************************
+'''
+66. Plus One
 
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. 
+The digits are ordered from most significant to least significant in left-to-right order. 
+The large integer does not contain any leading 0's.
+
+Increment the large integer by one and return the resulting array of digits.
+
+ Example 1:
+Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+
+Example 2:
+Input: digits = [4,3,2,1]
+Output: [4,3,2,2]
+Explanation: The array represents the integer 4321.
+Incrementing by one gives 4321 + 1 = 4322.
+Thus, the result should be [4,3,2,2].
+
+Example 3:
+Input: digits = [9]
+Output: [1,0]
+Explanation: The array represents the integer 9.
+Incrementing by one gives 9 + 1 = 10.
+Thus, the result should be [1,0].
+'''
+
+class Solution:
+    def plusOne(self, digits: list[int]) -> list[int]:
+        if digits[-1] == 9:
+            if len(digits) == 1:
+                return [1, 0]
+            return self.plusOne(digits[:-1]) + [0]
+        digits[-1] += 1
+        return digits
+
+
+digits = [9, 9]
+obj = Solution()
+print(obj.plusOne(digits)) # [1, 0, 0]
+-------------------------------------------------------------
+class Solution:
+    def plusOne(self, digit: list[int]) -> list[int]:
+        for i in range(len(digit) - 1, -1, -1):
+            if digit[i] == 9:
+                digit[i] = 0
+            else:
+                digit[i] += 1
+                return digit
+
+        digit.append(0)
+        digit[0] = 1
+        return digit
+
+digits = [9, 9]
+obj = Solution()
+print(obj.plusOne(digits)) # [1, 0, 0]
+
+# ***********************************************************************************************************************
 '''
 1491. Average Salary Excluding the Minimum and Maximum Salary
 You are given an array of unique integers salary where salary[i] is the salary of the ith employee.
