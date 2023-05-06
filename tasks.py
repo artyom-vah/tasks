@@ -12,6 +12,7 @@
 9) 35. Search Insert Position (Поиск позиции вставки)
 10) 58. Length of Last Word (Длина последнего слова)
 11) 66. Plus One
+12) 67. Add Binary
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -267,7 +268,7 @@ Explanation: Your function should return k = 5, with the first five elements of 
 It does not matter what you leave beyond the returned k (hence they are underscores).
 '''
 
-
+################## *** Вариант 1 *** ##################
 class Solution():
     def removeDuplicates(self, nums):
         # return len(set(nums))
@@ -283,6 +284,25 @@ nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 # nums = [1,1,2]
 obj = Solution()
 print(obj.removeDuplicates(nums))
+
+################## *** Вариант 2 *** ##################
+class Solution():
+    def removeDuplicates(self, nums):
+        first = 0
+        second = 0
+        while second < len(nums):
+            while second < len(nums) - 1 and nums[second] == nums[second + 1]:
+                second += 1
+            nums[first] = nums[second]
+            first += 1
+            second += 1
+        return len(nums[:first])
+
+nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+# nums = [1,1,2]
+obj = Solution()
+print(obj.removeDuplicates(nums))
+
 
 # ***********************************************************************************************************************
 '''
@@ -489,7 +509,7 @@ class Solution:
 digits = [9, 9]
 obj = Solution()
 print(obj.plusOne(digits))  # [1, 0, 0]
--------------------------------------------------------------
+#########################################################
 
 
 class Solution:
@@ -559,4 +579,20 @@ obj = Solution()
 print(obj.average(salary))  # 2500.0
 
 # ***********************************************************************************************************************
+'''
+67. Add Binary
+Given two binary strings a and b, return their sum as a binary string.
+
+Example 1:
+Input: a = "11", b = "1"
+Output: "100"
+
+Example 2:
+Input: a = "1010", b = "1011"
+Output: "10101"
+'''
+
+
+
 # ***********************************************************************************************************************
+################## *** Вариант 1 *** ##################
