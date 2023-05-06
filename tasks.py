@@ -498,6 +498,7 @@ Thus, the result should be [1,0].
 '''
 
 
+################## *** Вариант 1 *** ##################
 class Solution:
     def plusOne(self, digits: list[int]) -> list[int]:
         if digits[-1] == 9:
@@ -513,7 +514,7 @@ obj = Solution()
 print(obj.plusOne(digits))  # [1, 0, 0]
 
 
-#########################################################
+################## *** Вариант 2 *** ##################
 
 
 class Solution:
