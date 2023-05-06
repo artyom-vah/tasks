@@ -13,6 +13,7 @@
 10) 58. Length of Last Word (Длина последнего слова)
 11) 66. Plus One
 12) 67. Add Binary
+13) 69. Sqrt(x)
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
