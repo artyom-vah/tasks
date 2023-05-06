@@ -38,6 +38,7 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 '''
 
+
 class Solution(object):
     def twoSum(self, arr, target):
         for i in range(0, len(arr)):
@@ -45,6 +46,7 @@ class Solution(object):
                 if arr[i] + arr[j] == target:
                     return [i, j]
         return None
+
 
 nums = [3, 2, 4]
 target = 6
@@ -71,6 +73,7 @@ Input: x = 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 '''
+
 
 class Solution(object):
     def isPalindrome(self, x):
@@ -121,6 +124,7 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 '''
 
+
 class Solution(object):
     def romanToInt(self, s):
         roman = {
@@ -139,6 +143,7 @@ class Solution(object):
             else:
                 total += roman[s[i]]
         return total + roman[s[-1]]
+
 
 obj = Solution()
 print(obj.romanToInt('XVII'))  # 17
@@ -162,6 +167,7 @@ Output: ""
 Explanation: There is no common prefix among the input strings.
 '''
 
+
 class Solution:
     def longestCommonPrefix(self, strs):
         if len(strs) == 0:
@@ -177,7 +183,7 @@ class Solution:
 
 strs = ["flower", "flow", "flight"]
 obj = Solution()
-print(obj.longestCommonPrefix(strs))
+print(obj.longestCommonPrefix(strs))  # fl
 
 # ***********************************************************************************************************************
 '''
@@ -206,6 +212,7 @@ Example 3:
 Input: s = "(]"
 Output: false'''
 
+
 class Solution():
     def isValid(self, s: str) -> bool:
         d = {'(': ')', '[': ']', '{': '}'}
@@ -219,6 +226,7 @@ class Solution():
                 if i != d[l.pop()]:
                     return False
         return l == []
+
 
 obj = Solution()
 print(obj.isValid('(])'))  # False
@@ -246,7 +254,6 @@ The judge will test your solution with the following code:
 Судья по обычаю:
 Судья протестирует ваше решение с помощью следующего кода:
 
-
 Example 1:
 Input: nums = [1,1,2]
 Output: 2, nums = [1,2,_]
@@ -259,6 +266,7 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 '''
+
 
 class Solution():
     def removeDuplicates(self, nums):
@@ -312,11 +320,13 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 Не имеет значения, что вы оставляете за пределами возвращаемого k (следовательно, они являются символами подчеркивания).
 '''
 
+
 class Solution:
     def removeElement(self, nums: list[int], val: int) -> int:
         while val in nums:
             nums.remove(val)
         return len(nums)
+
 
 nums = [0, 1, 3, 4, 3]
 val = 3
@@ -341,11 +351,13 @@ Output: -1
 Explanation: "leeto" did not occur in "leetcode", so we return -1.
 '''
 
+
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         if needle in haystack:
             return haystack.index(needle)
         return -1
+
 
 haystack = "sadbutsad"
 needle = "sad"
@@ -376,6 +388,7 @@ Input: nums = [1,3,5,6], target = 7
 Output: 4
 '''
 
+
 class Solution:
     def searchInsert(self, nums: list[int], target: int) -> int:
         left = 0
@@ -387,6 +400,7 @@ class Solution:
             else:
                 left = mid + 1
         return left
+
 
 arr = [1, 3, 5, 6]
 t = 2
@@ -418,13 +432,16 @@ Input: s = "luffy is still joyboy"
 Output: 6
 Explanation: The last word is "joyboy" with length 6.
 '''
+
+
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         return len(s.strip().split()[-1])
 
+
 s1 = "   fly me   to   the moon  "
 obj = Solution()
-print(obj.lengthOfLastWord(s1)) # 4
+print(obj.lengthOfLastWord(s1))  # 4
 
 # ***********************************************************************************************************************
 '''
@@ -458,6 +475,7 @@ Incrementing by one gives 9 + 1 = 10.
 Thus, the result should be [1,0].
 '''
 
+
 class Solution:
     def plusOne(self, digits: list[int]) -> list[int]:
         if digits[-1] == 9:
@@ -467,10 +485,13 @@ class Solution:
         digits[-1] += 1
         return digits
 
+
 digits = [9, 9]
 obj = Solution()
-print(obj.plusOne(digits)) # [1, 0, 0]
+print(obj.plusOne(digits))  # [1, 0, 0]
 -------------------------------------------------------------
+
+
 class Solution:
     def plusOne(self, digit: list[int]) -> list[int]:
         for i in range(len(digit) - 1, -1, -1):
@@ -484,9 +505,10 @@ class Solution:
         digit[0] = 1
         return digit
 
+
 digits = [9, 9]
 obj = Solution()
-print(obj.plusOne(digits)) # [1, 0, 0]
+print(obj.plusOne(digits))  # [1, 0, 0]
 
 # ***********************************************************************************************************************
 '''
@@ -522,6 +544,7 @@ Constraints:
 Пояснение: Минимальная и максимальная заработная плата составляют 1000 и 3000 долларов соответственно.
 Средняя заработная плата без учета минимальной и максимальной составляет (2000) / 1 = 2000
 '''
+
 
 class Solution():
     def average(self, salary: list[int]) -> float:
