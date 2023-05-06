@@ -268,6 +268,7 @@ Explanation: Your function should return k = 5, with the first five elements of 
 It does not matter what you leave beyond the returned k (hence they are underscores).
 '''
 
+
 ################## *** Вариант 1 *** ##################
 class Solution():
     def removeDuplicates(self, nums):
@@ -285,6 +286,7 @@ nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 obj = Solution()
 print(obj.removeDuplicates(nums))
 
+
 ################## *** Вариант 2 *** ##################
 class Solution():
     def removeDuplicates(self, nums):
@@ -298,11 +300,11 @@ class Solution():
             second += 1
         return len(nums[:first])
 
+
 nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 # nums = [1,1,2]
 obj = Solution()
 print(obj.removeDuplicates(nums))
-
 
 # ***********************************************************************************************************************
 '''
@@ -509,6 +511,8 @@ class Solution:
 digits = [9, 9]
 obj = Solution()
 print(obj.plusOne(digits))  # [1, 0, 0]
+
+
 #########################################################
 
 
@@ -593,6 +597,17 @@ Output: "10101"
 '''
 
 
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        a = int(a, 2)
+        b = int(b, 2)
+        return str(bin(a + b)[2:])
+
+
+a = "11"
+b = "1"
+obj = Solution()
+print(obj.addBinary(a, b))  # 100
 
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
