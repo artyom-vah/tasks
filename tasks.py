@@ -14,6 +14,7 @@
 11) 66. Plus One
 12) 67. Add Binary
 13) 69. Sqrt(x)
+14) 70. Climbing Stairs (Поднимаясь по лестнице)
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -611,7 +612,6 @@ b = "1"
 obj = Solution()
 print(obj.addBinary(a, b))  # 100
 
-
 # ***********************************************************************************************************************
 '''
 69. Sqrt(x)
@@ -632,6 +632,7 @@ Explanation: The square root of 8 is 2.82842..., and since we round it down to t
 '''
 from math import sqrt
 
+
 class Solution:
     def mySqrt(self, x: int) -> int:
         return int(sqrt(x))
@@ -639,7 +640,48 @@ class Solution:
 
 x = 4
 obj = Solution()
-print(obj.mySqrt(x)) # 2
+print(obj.mySqrt(x))  # 2
+
+# ***********************************************************************************************************************
+'''
+70. Climbing Stairs
+
+You are climbing a staircase. It takes n steps to reach the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+Вы поднимаетесь по лестнице. Требуется n шагов, чтобы добраться до вершины. 
+Каждый раз вы можете подняться на 1 или 2 ступеньки. Сколькими различными способами вы можете подняться на вершину?
+
+Example 1:
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+
+Example 2:
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+'''
+
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        one, two = 1, 1
+        for i in range(n - 1):
+            temp = one + two
+            one = two
+            two = temp
+        return two
+
+
+n = 4
+obj = Solution()
+print(obj.climbStairs(n))  # 5
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
