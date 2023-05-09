@@ -14,6 +14,7 @@
 12) 67. Add Binary
 13) 69. Sqrt(x)
 14) 70. Climbing Stairs (Поднимаясь по лестнице)
+15) 83. Remove Duplicates from Sorted List (Удалить дубликаты из отсортированного списка)
 100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -681,6 +682,35 @@ class Solution:
 n = 4
 obj = Solution()
 print(obj.climbStairs(n))  # 5
+
+# ***********************************************************************************************************************
+'''
+83. Remove Duplicates from Sorted List
+
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. 
+Return the linked list sorted as well.
+Учитывая заголовок отсортированного связанного списка, удалите все дубликаты, чтобы каждый элемент появлялся только один раз.
+Возвращает также отсортированный связанный список.
+  
+Example 1:
+Input: head = [1,1,2]
+Output: [1,2]
+
+Example 2:
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+'''
+
+
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        current = head
+        while current and current.next:
+            if current.val == current.next.val:
+                current.next = current.next.next
+            else:
+                current = current.next
+        return head
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
