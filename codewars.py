@@ -1,6 +1,9 @@
 # ***********************************************************************************************************************
 ''''
 (8 kyu)
+    1) Even or Odd
+    2) Sum of positive
+
 (7 kyu)
 (6 kyu)
     1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
@@ -12,12 +15,60 @@
 ### *** (8 kyu) *** ###
 '''
 (8 kyu) 
+Even or Odd
+Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+Создайте функцию, которая принимает целое число в качестве аргумента и возвращает "Четное" для четных чисел или "Нечетное" для нечетных чисел.
 '''
 
+
+################## *** Вариант 1 *** ##################
+def even_or_odd(number):
+    if number % 2 == 0:
+        return "Even"
+    return "Odd"
+
+
+print(even_or_odd(10))
+
+
+################## *** Вариант 2 *** ##################
+def even_or_odd(number):
+    return "Even" if number % 2 == 0 else "Odd"
+
+
+print(even_or_odd(9))
+
+################## *** Вариант 3 *** ##################
+even_or_odd = lambda number: "Odd" if number % 2 else "Even"
+
+'''
+(8 kyu) 
+You get an array of numbers, return the sum of all of the positives ones.
+Вы получаете массив чисел, возвращаете сумму всех положительных чисел.
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+'''
+
+
+################## *** Вариант 1 *** ##################
+def positive_sum(arr: list):
+    summ = 0
+    for i in arr:
+        if i > 0:
+            summ += i
+    return summ
+
+
+a = [1, -4, 7, 12]
+print(positive_sum(a))
+
+
+################## *** Вариант 2 *** ##################
+def positive_sum(arr):
+    return sum(x for x in arr if x > 0)
+
+
 ### *** (7 kyu) *** ###
-'''
-(7 kyu) 
-'''
+
 
 ### *** (6 kyu) *** ###
 '''
