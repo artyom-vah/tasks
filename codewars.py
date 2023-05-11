@@ -1,9 +1,12 @@
 # ***********************************************************************************************************************
 ''''
+всего 7
+
 (8 kyu)
     1) Even or Odd
     2) Sum of positive
     3) Return Negative
+    4) Reversed Strings
 
 (7 kyu)
 (6 kyu)
@@ -12,11 +15,11 @@
 (5 kyu)
     1) Human Readable Time (Человекочитаемое время)
 '''
-
+# ***********************************************************************************************************************
 ### *** (8 kyu) *** ###
 '''
 (8 kyu) 
-Even or Odd
+1) Even or Odd
 Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
 Создайте функцию, которая принимает целое число в качестве аргумента и возвращает "Четное" для четных чисел или "Нечетное" для нечетных чисел.
 '''
@@ -41,10 +44,10 @@ print(even_or_odd(9))
 
 ################## *** Вариант 3 *** ##################
 even_or_odd = lambda number: "Odd" if number % 2 else "Even"
-
+# ***********************************************************************************************************************
 '''
 (8 kyu) 
-You get an array of numbers, return the sum of all of the positives ones.
+2) You get an array of numbers, return the sum of all of the positives ones.
 Вы получаете массив чисел, возвращаете сумму всех положительных чисел.
 Example [1,-4,7,12] => 1 + 7 + 12 = 20
 '''
@@ -66,10 +69,10 @@ print(positive_sum(a))
 ################## *** Вариант 2 *** ##################
 def positive_sum(arr):
     return sum(x for x in arr if x > 0)
-
+# ***********************************************************************************************************************
 '''
 (8 kyu) 
-Return Negative
+3) Return Negative
 In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
 В этом простом задании вам дается число, и вы должны сделать его отрицательным. А может быть, число уже отрицательное?
 
@@ -85,11 +88,33 @@ def make_negative(number):
     return -abs(number)
 
 print(make_negative(-5)) # -5
+# ***********************************************************************************************************************
+'''
+(8 kyu)
+4) Reversed Strings
+Complete the solution so that it reverses the string passed into it.
+
+'world'  =>  'dlrow'
+'word'   =>  'drow'
+'''
+def solution(string):
+    # return ''.join([str for str in string][::-1])
+    # solution = lambda s: s[::-1]
+    # return ''.join(i for i in reversed(string))
+    # solution=lambda _:_[::-1]
+    return string[::-1]
+
+
+print(solution('world')) # dlrow
+# ***********************************************************************************************************************
+
 
 ### *** (7 kyu) *** ###
-
+# ***********************************************************************************************************************
+# ***********************************************************************************************************************
 
 ### *** (6 kyu) *** ###
+# ***********************************************************************************************************************
 '''
 (6 kyu) 
 Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
@@ -165,6 +190,7 @@ solution = lambda n: sum(i for i in range(n) if i % 3 == 0 or i % 5 == 0)
 print(solution(10))
 
 ### *** (5 kyu) *** ###
+# ***********************************************************************************************************************
 '''
 (5 kyu) 
 Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
