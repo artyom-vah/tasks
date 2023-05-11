@@ -3,6 +3,7 @@
 (8 kyu)
     1) Even or Odd
     2) Sum of positive
+    3) Return Negative
 
 (7 kyu)
 (6 kyu)
@@ -66,6 +67,24 @@ print(positive_sum(a))
 def positive_sum(arr):
     return sum(x for x in arr if x > 0)
 
+'''
+(8 kyu) 
+Return Negative
+In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+В этом простом задании вам дается число, и вы должны сделать его отрицательным. А может быть, число уже отрицательное?
+
+Examples
+make_negative(1);  # return -1
+make_negative(-5); # return -5
+make_negative(0);  # return 0
+'''
+def make_negative(number):
+    # return -number if number > 0 else number
+    # return abs(number) * -1
+    # return 0 - abs(number)
+    return -abs(number)
+
+print(make_negative(-5)) # -5
 
 ### *** (7 kyu) *** ###
 
