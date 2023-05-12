@@ -766,6 +766,46 @@ Input: p = [1,2,1], q = [1,1,2]
 Output: false
 '''
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+
+        def compare(pnode, qnode):
+            if not pnode and not qnode:
+                return True
+            if not pnode or not qnode:
+                return False
+            if pnode.val != qnode.val:
+                return False
+            return compare(pnode.left, qnode.left) and compare(pnode.right, qnode.right)
+
+        return compare(p, q)
+
+
+head1 = TreeNode(1)
+head1.left = TreeNode(2)
+head1.right = TreeNode(3)
+
+head2 = TreeNode(1)
+head2.left = TreeNode(2)
+head2.right = TreeNode(3)
+
+obj = Solution()
+result = obj.isSameTree(head1, head2)
+
+print(result)
+
+
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
 ################## *** Вариант 2 *** ##################
