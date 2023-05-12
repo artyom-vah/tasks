@@ -669,9 +669,14 @@ Input: head = [1,1,2,3,3]
 Output: [1,2,3]
 '''
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 
 class Solution:
-    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
         current = head
         while current and current.next:
             if current.val == current.next.val:
@@ -679,6 +684,26 @@ class Solution:
             else:
                 current = current.next
         return head
+
+
+head = ListNode(1)
+head.next = ListNode(1)
+head.next.next = ListNode(2)
+
+obj = Solution()
+result = obj.deleteDuplicates(head)
+
+print()
+while result:
+    print(result.val)
+    result = result.next
+
+
+
+# ***********************************************************************************************************************
+# ***********************************************************************************************************************
+################## *** Вариант 1 *** ##################
+################## *** Вариант 2 *** ##################
 
 
 '''
