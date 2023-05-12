@@ -15,8 +15,10 @@
 13) 69. Sqrt(x)
 14) 70. Climbing Stairs (Поднимаясь по лестнице)
 15) 83. Remove Duplicates from Sorted List (Удалить дубликаты из отсортированного списка)
-16) 101. Symmetric Tree (Симметричное дерево)
-100) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
+16) 88. Merge Sorted Array (Объединить отсортированный массив)
+
+100) 101. Symmetric Tree (Симметричное дерево)
+101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
 1. Two Sum
@@ -653,7 +655,7 @@ print(obj.climbStairs(n))  # 5
 
 # ***********************************************************************************************************************
 '''
-83. Remove Duplicates from Sorted List
+15) 83. Remove Duplicates from Sorted List
 
 Given the head of a sorted linked list, delete all duplicates such that each element appears only once. 
 Return the linked list sorted as well.
@@ -668,6 +670,7 @@ Example 2:
 Input: head = [1,1,2,3,3]
 Output: [1,2,3]
 '''
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -698,7 +701,63 @@ while result:
     print(result.val)
     result = result.next
 
+# ***********************************************************************************************************************
+'''
+16) 88. Merge Sorted Array (Объединить отсортированный массив)
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, 
+representing the number of elements in nums1 and nums2 respectively.
 
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. 
+To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged,
+and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
+ 
+Вам даны два массива целых чисел nums1 и nums2, отсортированные в неубывающем порядке, и два целых числа m и n, 
+представляющие количество элементов в nums1 и nums2 соответственно.
+
+Объедините nums1 и nums2 в один массив, отсортированный в неубывающем порядке.
+
+Окончательный отсортированный массив не должен возвращаться функцией, а должен храниться внутри массива nums1. 
+Чтобы приспособиться к этому, nums1 имеет длину m + n, где первый m элементов обозначают элементы, которые следует объединить,
+а последним n элементам присваивается значение 0, и их следует игнорировать. nums2 имеет длину n.
+ 
+Example 1:
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+
+Example 2:
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+Explanation: The arrays we are merging are [1] and [].
+The result of the merge is [1].
+
+Example 3:
+Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+Output: [1]
+Explanation: The arrays we are merging are [] and [1].
+The result of the merge is [1].
+Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+'''
+
+
+class Solution:
+    def merge(self, nums1: list, m: int, nums2: list, n: int) -> list:
+        for i in range(m, m + n):
+            nums1[i] = nums2[i - m]
+        nums1.sort()
+        return nums1
+
+
+nums1 = [1, 2, 3, 0, 0, 0]
+m = 3
+nums2 = [2, 5, 6]
+n = 3
+
+obj = Solution()
+print(obj.merge(nums1, m, nums2, n))
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
