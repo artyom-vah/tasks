@@ -16,7 +16,7 @@
 14) 70. Climbing Stairs (Поднимаясь по лестнице)
 15) 83. Remove Duplicates from Sorted List (Удалить дубликаты из отсортированного списка)
 16) 88. Merge Sorted Array (Объединить отсортированный массив)
-
+17) 100. Same Tree (То же дерево)
 100) 101. Symmetric Tree (Симметричное дерево)
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
@@ -540,21 +540,6 @@ digits = [9, 9]
 obj = Solution()
 print(obj.plusOne(digits))  # [1, 0, 0]
 
-
-# ***********************************************************************************************************************
-
-class Solution():
-    def average(self, salary: list[int]) -> float:
-        salary.sort()
-        # return (sum(salary)-salary[0]-salary[-1])/(len(salary)-2)
-        # return (sum(salary) - max(salary) - min(salary))/(len(salary)-2)
-        return sum(salary[1:-1]) / (len(salary) - 2)
-
-
-salary = [4000, 3000, 1000, 2000]
-obj = Solution()
-print(obj.average(salary))  # 2500.0
-
 # ***********************************************************************************************************************
 '''
 67. Add Binary
@@ -760,6 +745,27 @@ obj = Solution()
 print(obj.merge(nums1, m, nums2, n))
 
 # ***********************************************************************************************************************
+'''
+17) 100. Same Tree (То же дерево)
+Given the roots of two binary trees p and q, write a function to check if they are the same or not.
+Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+
+Имея корни двух бинарных деревьев p и q, напишите функцию, проверяющую, совпадают ли они или нет. 
+Два бинарных дерева считаются одинаковыми, если они структурно идентичны, а узлы имеют одинаковое значение.
+
+Example 1:
+Input: p = [1,2,3], q = [1,2,3]
+Output: true
+
+Example 2:
+Input: p = [1,2], q = [1,null,2]
+Output: false
+
+Example 3:
+Input: p = [1,2,1], q = [1,1,2]
+Output: false
+'''
+
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
 ################## *** Вариант 2 *** ##################
@@ -807,6 +813,10 @@ class Solution():
         # return (sum(salary) - max(salary) - min(salary))/(len(salary)-2)
         return sum(salary[1:-1]) / (len(salary) - 2)
 
+
+salary = [4000, 3000, 1000, 2000]
+obj = Solution()
+print(obj.average(salary))  # 2500.0
 
 salary = [4000, 3000, 1000, 2000]
 obj = Solution()
