@@ -19,6 +19,7 @@
 17) 100. Same Tree (То же дерево)
 18) 101. Symmetric Tree (Симметричное дерево)
 19) 108.Convert Sorted Array to Binary Search Tree (Преобразование отсортированного массива в двоичное дерево поиска)
+20) 110. Balanced Binary Tree (Сбалансированное бинарное дерево)
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -820,11 +821,14 @@ Example 2:
 Input: root = [1,2,2,null,3,null,3]
 Output: false
 '''
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def isSymmetric(self, root) -> bool:
@@ -834,7 +838,9 @@ class Solution:
             if not left or not right:
                 return False
             return left.val == right.val and dfs(left.left, right.right) and dfs(left.right, right.left)
+
         return dfs(root.left, root.right)
+
 
 # Создание первого дерева
 root1 = TreeNode(1)
@@ -857,12 +863,11 @@ solution = Solution()
 
 print(root1)
 # Проверка первого дерева на симметричность
-print(solution.isSymmetric(root1)) # Вывод: True
-
+print(solution.isSymmetric(root1))  # Вывод: True
 
 print(root2)
 # Проверка второго дерева на симметричность
-print(solution.isSymmetric(root2)) # Вывод: False
+print(solution.isSymmetric(root2))  # Вывод: False
 
 # ***********************************************************************************************************************
 '''
@@ -933,8 +938,57 @@ print(root.left.left.val, root.left.right.val, root.right.left.val, root.right.r
 1 3 5 7
 '''
 # ***********************************************************************************************************************
+'''
+20) 110. Balanced Binary Tree (Сбалансированное бинарное дерево)
+Given a binary tree, determine if it is height-balanced .
+Дано бинарное дерево, определите, является ли оно сбалансированный по высоте.
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: true
+
+Example 2:
+Input: root = [1,2,2,3,3,null,null,4,4]
+Output: false
+
+Example 3:
+Input: root = []
+Output: true
+'''
 
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def isBalanced(self, root):
+        return self.Height(root) >= 0
+
+    def Height(self, root):
+        if root is None:
+            return 0
+        leftheight, rightheight = self.Height(root.left), self.Height(root.right)
+        if leftheight < 0 or rightheight < 0 or abs(leftheight - rightheight) > 1:
+            return -1
+        return max(leftheight, rightheight) + 1
+
+
+# Создаем дерево
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
+
+# Создаем экземпляр класса Solution
+s = Solution()
+
+# Вызываем метод isBalanced() и выводим результат
+print(s.isBalanced(root))  # Output: True
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
