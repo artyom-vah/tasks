@@ -17,7 +17,8 @@
 15) 83. Remove Duplicates from Sorted List (Удалить дубликаты из отсортированного списка)
 16) 88. Merge Sorted Array (Объединить отсортированный массив)
 17) 100. Same Tree (То же дерево)
-100) 101. Symmetric Tree (Симметричное дерево)
+18) 101. Symmetric Tree (Симметричное дерево)
+19) 108.Convert Sorted Array to Binary Search Tree (Преобразование отсортированного массива в двоичное дерево поиска)
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 '''
 '''
@@ -766,6 +767,7 @@ Input: p = [1,2,1], q = [1,1,2]
 Output: false
 '''
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -804,6 +806,126 @@ obj = Solution()
 result = obj.isSameTree(head1, head2)
 
 print(result)
+
+# ***********************************************************************************************************************
+'''
+18) 101. Symmetric Tree (Симметричное дерево)
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+Учитывая корень бинарного дерева, проверьте, является ли он зеркалом самого себя (т. Е. Симметричным относительно своего центра).
+'''
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def isSymmetric(self, root) -> bool:
+        def dfs(left, right):
+            if not left and not right:
+                return True
+            if not left or not right:
+                return False
+            return left.val == right.val and dfs(left.left, right.right) and dfs(left.right, right.left)
+        return dfs(root.left, root.right)
+
+# Создание первого дерева
+root1 = TreeNode(1)
+root1.left = TreeNode(2)
+root1.right = TreeNode(2)
+root1.left.left = TreeNode(3)
+root1.left.right = TreeNode(4)
+root1.right.left = TreeNode(4)
+root1.right.right = TreeNode(3)
+
+# Создание второго дерева
+root2 = TreeNode(1)
+root2.left = TreeNode(2)
+root2.right = TreeNode(2)
+root2.left.right = TreeNode(3)
+root2.right.right = TreeNode(3)
+
+# Создание экземпляра класса Solution
+solution = Solution()
+
+print(root1)
+# Проверка первого дерева на симметричность
+print(solution.isSymmetric(root1)) # Вывод: True
+
+
+print(root2)
+# Проверка второго дерева на симметричность
+print(solution.isSymmetric(root2)) # Вывод: False
+
+# ***********************************************************************************************************************
+'''
+19) 108.Convert Sorted Array to Binary Search Tree (Преобразование отсортированного массива в двоичное дерево поиска)
+Given an integer array nums where the elements are sorted in ascending order, convert it to a 
+height-balanced binary search tree.
+
+Дан целочисленный массив nums, в котором элементы отсортированы в порядке возрастания, преобразовать его в 
+сбалансированный по высоте бинарное дерево поиска.
+
+Example 1:
+Input: nums = [-10,-3,0,5,9]
+Output: [0,-3,9,-10,null,5]
+Explanation: [0,-10,5,null,-3,null,9] is also accepted:
+
+Example 2:
+Input: nums = [1,3]
+Output: [3,1]
+Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.
+'''
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def sortedArrayToBST(self, nums: list[int]) -> TreeNode:
+        if not nums:
+            return None
+
+        n = len(nums)
+        root = TreeNode()
+        stack = [(0, n, root)]
+
+        while stack:
+            i, j, node = stack.pop()
+            mid = (i + j) // 2
+            node.val = nums[mid]
+
+            if mid > i:
+                node.left = TreeNode()
+                stack.append((i, mid, node.left))
+            if mid + 1 < j:
+                node.right = TreeNode()
+                stack.append((mid + 1, j, node.right))
+
+        return root
+
+
+# Создаем объект класса Solution
+sol = Solution()
+
+# Создаем дерево на основе отсортированного списка
+nums = [1, 2, 3, 4, 5, 6, 7]
+root = sol.sortedArrayToBST(nums)
+
+# Выводим значения дерева
+print(root.val)  # 4
+print(root.left.val, root.right.val)  # 2 6
+print(root.left.left.val, root.left.right.val, root.right.left.val, root.right.right.val)  # 1 3 5 7
+'''
+4
+2 6
+1 3 5 7
+'''
+
 
 
 # ***********************************************************************************************************************

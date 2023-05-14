@@ -117,7 +117,7 @@ print(solution('world')) # dlrow
 # ***********************************************************************************************************************
 '''
 (6 kyu) 
-Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
+1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
 
 Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until 
 a single-digit number is produced. The input will be a non-negative integer.
@@ -162,7 +162,7 @@ print(digital_root(493193))  # 2
 # ***********************************************************************************************************************
 '''
 (6 kyu) 
-Multiples of 3 or 5
+    2) Multiples of 3 or 5 (Кратные 3 или 5)
 
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. 
 The sum of these multiples is 23. Finish the solution so that it returns the sum of all the multiples 
@@ -192,7 +192,9 @@ print(solution(10))
 ### *** (5 kyu) *** ###
 # ***********************************************************************************************************************
 '''
-(5 kyu) 
+(5 kyu)
+1) Human Readable Time (Человекочитаемое время)
+
 Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
 HH = hours, padded to 2 digits, range: 00 - 99
 MM = minutes, padded to 2 digits, range: 00 - 59
