@@ -22,6 +22,7 @@
 20) 110. Balanced Binary Tree (Сбалансированное бинарное дерево)
 21) 111. Minimum Depth of Binary Tree (Минимальная глубина бинарного дерева.)
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
+102) 2678. Number of Senior Citizens (Количество пожилых граждан)
 
 '''
 '''
@@ -1007,6 +1008,8 @@ Example 2:
 Input: root = [2,null,3,null,4,null,5,null,6]
 Output: 5
 '''
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -1029,7 +1032,6 @@ class Solution:
             if node.right is not None:
                 queue.append(node.right)
             if node == rightMost:
-                # reach the current level end
                 depth += 1
                 if node.right is not None:
                     rightMost = node.right
@@ -1052,9 +1054,10 @@ s = Solution()
 result = s.minDepth(root)
 
 # Выводим результат
-print(result) # 2
+print(result)  # 2
 
 # ***********************************************************************************************************************
+
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
@@ -1113,6 +1116,52 @@ obj = Solution()
 print(obj.average(salary))  # 2500.0
 
 # ***********************************************************************************************************************
+'''
+2678. Number of Senior Citizens (Количество пожилых граждан)
+You are given a 0-indexed array of strings details. Each element of details provides information about 
+a given passenger compressed into a string of length 15. The system is such that:
+Вам дан массив деталей строк с индексом 0. Каждый элемент сведений предоставляет информацию 
+о данном пассажире, сжатую в строку длиной 15. Система такова, что:
+
+The first ten characters consist of the phone number of passengers.
+The next character denotes the gender of the person.
+The following two characters are used to indicate the age of the person.
+The last two characters determine the seat allotted to that person.
+Return the number of passengers who are strictly more than 60 years old.
+
+Example 1:
+Input: details = ["7868190130M7522","5303914400F9211","9273338290F4010"]
+Explanation: The passengers at indices 0, 1, and 2 have ages 75, 92, and 40. 
+Thus, there are 2 people who are over 60 years old.
+
+Example 2:
+Input: details = ["1313579440F2036","2921522980M5644"]
+Output: 0
+Explanation: None of the passengers are older than 60.
+'''
+
+
+class Solution:
+    def countSeniors(self, details: list[str]) -> int:
+        l = []
+        for i in details:
+            age = int(i[-4:-2])
+            if age > 60:
+                l.append(age)
+        return len(l)
+        # return sum(int(p[-4:-2]) > 60 for p in details)
+
+
+details = ["9751302862F0693",
+           "3888560693F7262",
+           "5485983835F0649",
+           "2580974299F6042",
+           "9976672161M6561",
+           "0234451011F8013",
+           "4294552179O6482"]
+obj = Solution()
+print(obj.countSeniors(details))
+
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
 ################## *** Вариант 2 *** ##################
