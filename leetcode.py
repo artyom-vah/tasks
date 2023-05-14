@@ -20,7 +20,9 @@
 18) 101. Symmetric Tree (Симметричное дерево)
 19) 108.Convert Sorted Array to Binary Search Tree (Преобразование отсортированного массива в двоичное дерево поиска)
 20) 110. Balanced Binary Tree (Сбалансированное бинарное дерево)
+21) 111. Minimum Depth of Binary Tree (Минимальная глубина бинарного дерева.)
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
+
 '''
 '''
 1. Two Sum
@@ -989,6 +991,68 @@ s = Solution()
 
 # Вызываем метод isBalanced() и выводим результат
 print(s.isBalanced(root))  # Output: True
+# ***********************************************************************************************************************
+'''
+111. Minimum Depth of Binary Tree (Минимальная глубина бинарного дерева.)
+iven a binary tree, find its minimum depth.
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+
+Note: A leaf is a node with no children.
+ 
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: 2
+
+Example 2:
+Input: root = [2,null,3,null,4,null,5,null,6]
+Output: 5
+'''
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def minDepth(self, root: TreeNode) -> int:
+        if root is None:
+            return 0
+        queue = [root]
+        depth, rightMost = 1, root
+        while len(queue) > 0:
+            node = queue.pop(0)
+            if node.left is None and node.right is None:
+                break
+            if node.left is not None:
+                queue.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
+            if node == rightMost:
+                # reach the current level end
+                depth += 1
+                if node.right is not None:
+                    rightMost = node.right
+                else:
+                    rightMost = node.left
+        return depth
+
+
+# Создаем тестовое дерево
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
+
+# Создаем экземпляр класса Solution
+s = Solution()
+
+# Вызываем функцию minDepth на тестовом дереве
+result = s.minDepth(root)
+
+# Выводим результат
+print(result) # 2
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
