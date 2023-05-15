@@ -10,6 +10,7 @@
 
 (7 kyu)
     1) Vowel Count (Количество гласных)
+    2) Disemvowel Trolls (Потрошители троллей)
 
 (6 kyu)
     1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
@@ -121,6 +122,7 @@ print(solution('world'))  # dlrow
 ### *** (7 kyu) *** ###
 
 '''
+(7 kyu)
 1) Vowel Count (Количество гласных)
 Return the number (count) of vowels in the given string.
 We will consider a, e, i, o, u as vowels for this Kata (but not y).
@@ -139,6 +141,33 @@ def get_count(sentence):
 print(get_count('hello friend'))
 
 # ***********************************************************************************************************************
+'''
+2) Disemvowel Trolls (Потрошители троллей)
+Trolls are attacking your comment section!
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+Note: for this kata y isn't considered a vowel.
+
+Тролли атакуют ваш раздел комментариев!
+Распространенный способ справиться с этой ситуацией - удалить все гласные из комментариев троллей, нейтрализовав угрозу.
+Ваша задача состоит в том, чтобы написать функцию, которая принимает строку и возвращает новую строку с удаленными всеми гласными.
+Например, строка "Этот сайт для неудачников, ЛОЛ!" превратилась бы в "Это wbst s fr lsrs LL!".
+Примечание: в этом ката y не считается гласной.
+'''
+
+
+def disemvowel(string_):
+    empty_str = ''
+    for i in string_:
+        if i not in 'aeiouAEIOU':
+            empty_str += i
+    return empty_str
+
+
+a = "This website is for losers LOL!"
+print(disemvowel(a))  # Ths wbst s fr lsrs LL!
+
 # ***********************************************************************************************************************
 
 ### *** (6 kyu) *** ###
