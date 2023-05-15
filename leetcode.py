@@ -21,6 +21,9 @@
 19) 108.Convert Sorted Array to Binary Search Tree (Преобразование отсортированного массива в двоичное дерево поиска)
 20) 110. Balanced Binary Tree (Сбалансированное бинарное дерево)
 21) 111. Minimum Depth of Binary Tree (Минимальная глубина бинарного дерева.)
+22) 112. Path Sum
+23) 118. Pascal's Triangle
+
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 102) 2678. Number of Senior Citizens (Количество пожилых граждан)
 
@@ -1057,7 +1060,41 @@ result = s.minDepth(root)
 print(result)  # 2
 
 # ***********************************************************************************************************************
+'''
+118. Pascal's Triangle
+Given an integer numRows, return the first numRows of Pascal's triangle.
+In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
 
+Example 1:
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+Example 2:
+Input: numRows = 1
+Output: [[1]]
+'''
+class Solution:
+    def generate(self, numRows: int) -> list[list[int]]:
+        '''
+        res = [[1]]
+        for i in range(1, numRows):
+            res += [map(lambda x, y: x + y, res[-1] + [0], [0] + res[-1])]
+        return res[:numRows]
+        '''
+
+        ans = []
+        for i in range(1, numRows + 1):
+            row = [1] * i
+            for j in range(1, i - 1):
+                row[j] = ans[i - 2][j] + ans[i - 2][j - 1]
+            ans.append(row)
+        return ans
+
+
+obj = Solution()
+print(obj.generate(4))
+
+# ***********************************************************************************************************************
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
