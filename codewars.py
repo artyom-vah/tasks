@@ -9,6 +9,8 @@
     4) Reversed Strings
 
 (7 kyu)
+    1) Vowel Count (Количество гласных)
+
 (6 kyu)
     1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
     2) Multiples of 3 or 5 (Кратные 3 или 5)
@@ -69,6 +71,8 @@ print(positive_sum(a))
 ################## *** Вариант 2 *** ##################
 def positive_sum(arr):
     return sum(x for x in arr if x > 0)
+
+
 # ***********************************************************************************************************************
 '''
 (8 kyu) 
@@ -81,13 +85,16 @@ make_negative(1);  # return -1
 make_negative(-5); # return -5
 make_negative(0);  # return 0
 '''
+
+
 def make_negative(number):
     # return -number if number > 0 else number
     # return abs(number) * -1
     # return 0 - abs(number)
     return -abs(number)
 
-print(make_negative(-5)) # -5
+
+print(make_negative(-5))  # -5
 # ***********************************************************************************************************************
 '''
 (8 kyu)
@@ -97,6 +104,8 @@ Complete the solution so that it reverses the string passed into it.
 'world'  =>  'dlrow'
 'word'   =>  'drow'
 '''
+
+
 def solution(string):
     # return ''.join([str for str in string][::-1])
     # solution = lambda s: s[::-1]
@@ -105,11 +114,30 @@ def solution(string):
     return string[::-1]
 
 
-print(solution('world')) # dlrow
+print(solution('world'))  # dlrow
 # ***********************************************************************************************************************
 
 
 ### *** (7 kyu) *** ###
+
+'''
+1) Vowel Count (Количество гласных)
+Return the number (count) of vowels in the given string.
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+The input string will only consist of lower case letters and/or spaces.
+
+Возвратите количество гласных в заданной строке. 
+Мы будем рассматривать a, e, i, o, u как гласные для этой Ката (но не y). 
+Входная строка будет состоять только из строчных букв и/или пробелов.
+'''
+
+
+def get_count(sentence):
+    return len([i for i in sentence if i in 'aeiouAEIOU'])
+
+
+print(get_count('hello friend'))
+
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
 
