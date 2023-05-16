@@ -24,6 +24,8 @@
 22) 112. Path Sum
 23) 118. Pascal's Triangle
 24) 119. Pascal's Triangle II
+25) 121. Best Time to Buy and Sell Stock (Лучшее время для покупки и продажи акций)
+26) 125. Valid Palindrome
 
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 102) 2678. Number of Senior Citizens (Количество пожилых граждан)
@@ -1180,22 +1182,86 @@ Example 3:
 Input: rowIndex = 1
 Output: [1,1]
 '''
+
+
 class Solution:
     def getRow(self, rowIndex: int) -> list[int]:
-        res=[]
-        for i in range(rowIndex+1):
+        res = []
+        for i in range(rowIndex + 1):
             res.append([])
-            for j in range(i+1):
+            for j in range(i + 1):
                 if j == 0 or j == i:
                     res[i].append(1)
                 else:
                     res[i].append(res[i - 1][j - 1] + res[i - 1][j])
         return res[rowIndex]
 
+
 obj = Solution()
-print(obj.getRow(5)) # [1, 5, 10, 10, 5, 1]
+print(obj.getRow(5))  # [1, 5, 10, 10, 5, 1]
+# ***********************************************************************************************************************
+'''
+121. Best Time to Buy and Sell Stock (Лучшее время для покупки и продажи акций)
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0
+
+Вам дан массив цен, где цены[i] — цена данной акции на i-й день.
+Вы хотите максимизировать свою прибыль, выбрав один день для покупки одной акции и выбрав другой день в будущем для продажи этой акции.
+Верните максимальную прибыль, которую вы можете получить от этой сделки. Если вы не можете получить никакой прибыли, верните 0.
+'''
 
 
+class Solution:
+    def maxProfit(self, prices: list[int]) -> int:
+        max = 0
+        min = prices[0]
+
+        for i in range(1, len(prices)):
+            if prices[i] < min:
+                min = prices[i]
+
+            elif (prices[i] - min) > max:
+                max = prices[i] - min
+
+        return max
+
+
+obj = Solution()
+print(obj.maxProfit([7, 1, 5, 3, 6, 4]))  # 5
+print(obj.maxProfit([7, 6, 4, 3, 1]))  # 0
+
+# ***********************************************************************************************************************
+'''
+26) 125. Valid Palindrome
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing 
+all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include
+letters and numbers.
+Given a string s, return true if it is a palindrome, or false otherwise.
+Фраза является палиндромом, если после преобразования всех прописных букв в строчные и удаления 
+всех неалфавитно-цифровых символов она читается одинаково вперед и назад. Буквенно-цифровые 
+символы включают в себя буквы и цифры.
+Учитывая строку s, верните true, если это палиндром, или false в противном случае.
+'''
+
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        # s = s.lower().replace(',', '').replace(':', '').replace('.', '').replace(' ', '')
+        s = s.lower()
+        res = ''
+        for i in s:
+            if i.isalpha():
+                res += i
+            elif i.isnumeric():
+                res += i
+        return res == res[::-1]
+
+
+obj = Solution()
+print(obj.isPalindrome("A man, a plan, a canal: Panama"))  # True
+print(obj.isPalindrome("race a car"))  # False
+print(obj.isPalindrome("0P"))
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
