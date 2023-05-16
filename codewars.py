@@ -11,6 +11,8 @@
 (7 kyu)
     1) Vowel Count (Количество гласных)
     2) Disemvowel Trolls (Потрошители троллей)
+    3) Highest and Lowest
+
 
 (6 kyu)
     1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
@@ -142,6 +144,7 @@ print(get_count('hello friend'))
 
 # ***********************************************************************************************************************
 '''
+(7 kyu)
 2) Disemvowel Trolls (Потрошители троллей)
 Trolls are attacking your comment section!
 A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
@@ -169,6 +172,18 @@ a = "This website is for losers LOL!"
 print(disemvowel(a))  # Ths wbst s fr lsrs LL!
 
 # ***********************************************************************************************************************
+'''
+(7 kyu)
+3) Highest and Lowest
+'''
+def high_and_low(numbers):
+    b = list(map(int, numbers.split()))
+    return f'{max(b)} {min(b)}'
+
+
+
+s = '8 3 -5 42 -1 0 0 -9 4 7 4 -4'
+high_and_low(s)
 
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
