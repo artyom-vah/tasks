@@ -12,6 +12,8 @@
     1) Vowel Count (Количество гласных)
     2) Disemvowel Trolls (Потрошители троллей)
     3) Highest and Lowest
+    4) Descending Order (В порядке убывания)
+
 
 
 (6 kyu)
@@ -176,14 +178,43 @@ print(disemvowel(a))  # Ths wbst s fr lsrs LL!
 (7 kyu)
 3) Highest and Lowest
 '''
+
+
 def high_and_low(numbers):
     b = list(map(int, numbers.split()))
     return f'{max(b)} {min(b)}'
 
 
-
 s = '8 3 -5 42 -1 0 0 -9 4 7 4 -4'
 print(high_and_low(s))
+
+# ***********************************************************************************************************************
+'''
+(7 kyu)
+4) Descending Order (В порядке убывания)
+Your task is to make a function that can take any non-negative integer as an argument and return it with its digits 
+in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+Ваша задача состоит в том, чтобы создать функцию, которая может принимать любое неотрицательное целое число
+в качестве аргумента и возвращать его с цифрами в порядке убывания. По сути, переставьте цифры, 
+тобы получить максимально возможное число.
+Examples:
+Input: 42145        Output: 54421
+Input: 145263       Output: 654321
+Input: 123456789    Output: 987654321
+'''
+
+
+def descending_order(num: int) -> int:
+    s = str(num)
+    res = ''
+    for i in sorted(list(map(str, s)), reverse=True):
+        res += i
+    return int(res)
+
+
+print(descending_order(42145))  # 54421
+# ***********************************************************************************************************************
 
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
