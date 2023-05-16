@@ -23,6 +23,7 @@
 21) 111. Minimum Depth of Binary Tree (Минимальная глубина бинарного дерева.)
 22) 112. Path Sum
 23) 118. Pascal's Triangle
+24) 119. Pascal's Triangle II
 
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 102) 2678. Number of Senior Citizens (Количество пожилых граждан)
@@ -1159,6 +1160,42 @@ obj = Solution()
 print(obj.generate(4))
 
 # ***********************************************************************************************************************
+'''
+119. Pascal's Triangle II
+Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal's triangle.
+In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+
+Учитывая целое число rowIndex, вернуть rowIndexth (с индексом 0) строку треугольника Паскаля.
+В треугольнике Паскаля каждое число представляет собой сумму двух чисел непосредственно над ним, как показано:
+
+Example 1:
+Input: rowIndex = 3
+Output: [1,3,3,1]
+
+Example 2:
+Input: rowIndex = 0
+Output: [1]
+
+Example 3:
+Input: rowIndex = 1
+Output: [1,1]
+'''
+class Solution:
+    def getRow(self, rowIndex: int) -> list[int]:
+        res=[]
+        for i in range(rowIndex+1):
+            res.append([])
+            for j in range(i+1):
+                if j == 0 or j == i:
+                    res[i].append(1)
+                else:
+                    res[i].append(res[i - 1][j - 1] + res[i - 1][j])
+        return res[rowIndex]
+
+obj = Solution()
+print(obj.getRow(5)) # [1, 5, 10, 10, 5, 1]
+
+
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
