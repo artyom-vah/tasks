@@ -26,6 +26,8 @@
 24) 119. Pascal's Triangle II
 25) 121. Best Time to Buy and Sell Stock (Лучшее время для покупки и продажи акций)
 26) 125. Valid Palindrome
+27) 136. Single Number
+
 
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
 102) 2678. Number of Senior Citizens (Количество пожилых граждан)
@@ -1262,6 +1264,47 @@ obj = Solution()
 print(obj.isPalindrome("A man, a plan, a canal: Panama"))  # True
 print(obj.isPalindrome("race a car"))  # False
 print(obj.isPalindrome("0P"))
+# ***********************************************************************************************************************
+'''
+27) 136. Single Number
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+В непустом массиве целых чисел nums каждый элемент встречается дважды, кроме одного. Найди ту единственную. 
+Вы должны реализовать решение с линейной сложностью времени выполнения и использовать только постоянное дополнительное пространство.
+Example 1:
+Input: nums = [2,2,1]
+Output: 1
+
+Example 2:
+Input: nums = [4,1,2,1,2]
+Output: 4
+
+Example 3:
+Input: nums = [1]
+Output: 1
+'''
+
+
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        # for i in range(1, len(nums)):
+        #     nums[0] ^= nums[i]
+        # return nums[0]
+
+        return 2 * sum(set(nums)) - sum(nums)
+
+        # seen = {}
+        # for num in nums:
+        #     if num in seen:
+        #         del seen[num]
+        #     else:
+        #         seen[num] = True
+        # return list(seen.keys())[0]
+
+
+obj = Solution()
+print(obj.singleNumber([4, 1, 1]))  # 4
+
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
