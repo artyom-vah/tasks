@@ -13,6 +13,7 @@
     2) Disemvowel Trolls (Потрошители троллей)
     3) Highest and Lowest
     4) Descending Order (В порядке убывания)
+    5) Get the Middle Character (Получить средний персонаж)
 
 
 
@@ -214,6 +215,56 @@ def descending_order(num: int) -> int:
 
 
 print(descending_order(42145))  # 54421
+# ***********************************************************************************************************************
+'''
+(7 kyu)
+5) Get the Middle Character (Получить средний персонаж)
+You are going to be given a word. Your job is to return the middle character of the word. 
+If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+Вам дадут слово. Ваша задача — вернуть средний символ слова. Если длина слова нечетная, вернуть средний символ. 
+Если длина слова четная, верните средние 2 символа.
+
+Kata.getMiddle("test") should return "es"
+Kata.getMiddle("testing") should return "t"
+Kata.getMiddle("middle") should return "dd"
+Kata.getMiddle("A") should return "A"
+'''
+
+
+################## *** Вариант 1 *** ##################
+def get_middle(s):
+    if len(s) % 2 == 0:
+        return f'{s[int((len(s) / 2) - 1)]}{s[int(len(s) / 2)]}'
+    elif len(s) % 2 == 1:
+        return s[len(s) // 2]
+
+
+print(get_middle("testing"))  # t
+print(get_middle("test"))  # es
+print(get_middle("middle"))  # dd
+
+
+################## *** Вариант 2 *** ##################
+def get_middle(s):
+    while len(s) > 2:
+        s = s[1:-1]
+    return s
+
+
+print(get_middle("testing"))  # t
+print(get_middle("test"))  # es
+print(get_middle("middle"))  # dd
+
+
+################## *** Вариант 3 *** ##################
+def get_middle(s):
+    return s if len(s) <= 2 else get_middle(s[1:-1])
+
+
+print(get_middle("testing"))  # t
+print(get_middle("test"))  # es
+print(get_middle("middle"))  # dd
 # ***********************************************************************************************************************
 
 ### *** (6 kyu) *** ###
