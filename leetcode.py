@@ -27,6 +27,7 @@
 25) 121. Best Time to Buy and Sell Stock (Лучшее время для покупки и продажи акций)
 26) 125. Valid Palindrome
 27) 136. Single Number
+28) 141. Linked List Cycle (Цикл связанного списка)
 
 
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
@@ -1304,6 +1305,75 @@ class Solution:
 
 obj = Solution()
 print(obj.singleNumber([4, 1, 1]))  # 4
+
+# ***********************************************************************************************************************
+'''
+141. Linked List Cycle (Цикл связанного списка)
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer.
+Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+Return true if there is a cycle in the linked list. Otherwise, return false.
+
+Учитывая head, заголовок связанного списка, определите, есть ли в связанном списке цикл.
+В связанном списке существует цикл, если в списке есть какой-либо узел, к которому можно снова перейти, непрерывно следуя следующему указателю.
+Внутренне pos используется для обозначения индекса узла, к которому подключен следующий указатель tail. Обратите внимание, что pos не передается в качестве параметра.
+Возвращает значение true, если в связанном списке есть цикл. В противном случае верните значение false.
+
+Example 1:
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+
+Example 2:
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+
+Example 3:
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
+'''
+
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        s, f = head, head
+        while f and f.next:
+            s = s.next
+            f = f.next.next
+            if f == s:
+                return True
+        return False
+
+
+# Создаем связанный список для проверки
+node1 = ListNode(1)
+node2 = ListNode(2)
+node3 = ListNode(3)
+node4 = ListNode(4)
+node5 = ListNode(5)
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+# Создаем цикл в списке
+node5.next = node2
+
+# Создаем экземпляр класса Solution
+solution = Solution()
+
+# Проверяем наличие цикла и выводим результат в консоль
+has_cycle = solution.hasCycle(node1)
+print(has_cycle)
+
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
