@@ -28,6 +28,7 @@
 26) 125. Valid Palindrome
 27) 136. Single Number
 28) 141. Linked List Cycle (Цикл связанного списка)
+29) 144. Binary Tree Preorder Traversal (Обход предварительного порядка двоичного дерева)
 
 
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
@@ -1308,7 +1309,7 @@ print(obj.singleNumber([4, 1, 1]))  # 4
 
 # ***********************************************************************************************************************
 '''
-141. Linked List Cycle (Цикл связанного списка)
+28) 141. Linked List Cycle (Цикл связанного списка)
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
 There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer.
 Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
@@ -1373,6 +1374,102 @@ solution = Solution()
 # Проверяем наличие цикла и выводим результат в консоль
 has_cycle = solution.hasCycle(node1)
 print(has_cycle)
+# ***********************************************************************************************************************
+'''
+29) 144. Binary Tree Preorder Traversal (Обход предварительного порядка двоичного дерева)
+Given the root of a binary tree, return the preorder traversal of its nodes' values.
+Учитывая корень бинарного дерева, верните предварительный обход значений его узлов.
+Example 1:
+Input: root = [1,null,2,3]
+Output: [1,2,3]
+
+Example 2:
+Input: root = []
+Output: []
+
+Example 3:
+Input: root = [1]
+Output: [1]
+'''
+
+################## *** Вариант 1 *** ##################
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def preorderTraversal(self, root_: TreeNode | None) -> list[int]:
+        def preorder(root: TreeNode | None):
+            if not root: return
+            yield root.val
+            yield from preorder(root.left)
+            yield from preorder(root.right)
+
+        return list(preorder(root_))
+
+node4 = TreeNode(4)
+node5 = TreeNode(5)
+node2 = TreeNode(2, node4, node5)
+node3 = TreeNode(3)
+root = TreeNode(1, node2, node3)
+
+# Создаем экземпляр класса Solution
+solution = Solution()
+
+# Вызываем метод preorderTraversal и выводим результат в консоль
+result = solution.preorderTraversal(root)
+print(result)
+
+################## *** Вариант 2*** ##################
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+
+    def preorderTraversal(self, root: TreeNode) -> list[int]:
+        value = []
+        right = []
+
+        left = root
+        while left:
+            value.append(left.val)
+            if left.right:
+                right.append(left.right)
+            left = left.left
+
+        while right:
+            r = right.pop()
+            value.append(r.val)
+            left = r.left
+            if r.right:
+                right.append(r.right)
+            while left:
+                value.append(left.val)
+                if left.right:
+                    right.append(left.right)
+                left = left.left
+
+        return value
+
+
+node4 = TreeNode(4)
+node5 = TreeNode(5)
+node2 = TreeNode(2, node4, node5)
+node3 = TreeNode(3)
+root = TreeNode(1, node2, node3)
+
+# Создаем экземпляр класса Solution
+solution = Solution()
+
+# Вызываем метод preorderTraversal и выводим результат в консоль
+result = solution.preorderTraversal(root)
+print(result)
 
 
 # ***********************************************************************************************************************
