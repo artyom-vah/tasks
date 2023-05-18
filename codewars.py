@@ -13,6 +13,7 @@
     3) Highest and Lowest
     4) Descending Order (В порядке убывания)
     5) Get the Middle Character (Получить средний персонаж)
+    6) Mumbling(бормотание)
 
 
 
@@ -265,6 +266,36 @@ print(get_middle("testing"))  # t
 print(get_middle("test"))  # es
 print(get_middle("middle"))  # dd
 # ***********************************************************************************************************************
+'''
+(7 kyu)
+6) Mumbling(бормотание)
+This time no story, no theory. The examples below show you how to write function accum:
+The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+На этот раз ни истории, ни теории. В приведенных ниже примерах показано, как написать функцию accum:
+Параметр accum представляет собой строку, включающую только буквы из a..z и A..Z.
+
+Examples:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+
+'''
+def accum(s):
+    # your codedef accum(s):
+    s = s.lower()  # Приводим строку к нижнему регистру
+    result = []  # Список для хранения промежуточных значений
+    count = 1  # Счетчик для определения количества повторений символа
+
+    for char in s:
+        repeated_char = char * count  # Повторяем символ в соответствии с текущим счетчиком
+        capitalized_char = repeated_char.capitalize()  # Первую букву делаем заглавной
+        result.append(capitalized_char)  # Добавляем полученное значение в список
+        count += 1  # Увеличиваем счетчик
+
+    return '-'.join(result)  # Возвращаем объединенную строку с использованием дефисов
+
+
 
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
