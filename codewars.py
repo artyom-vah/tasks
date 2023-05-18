@@ -281,6 +281,8 @@ accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 accum("cwAt") -> "C-Ww-Aaa-Tttt"
 
 '''
+
+
 def accum(s):
     # your codedef accum(s):
     s = s.lower()  # Приводим строку к нижнему регистру
@@ -296,6 +298,7 @@ def accum(s):
     return '-'.join(result)  # Возвращаем объединенную строку с использованием дефисов
 
 
+print(accum("abcd"))
 
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
