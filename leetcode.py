@@ -29,6 +29,8 @@
 27) 136. Single Number
 28) 141. Linked List Cycle (Цикл связанного списка)
 29) 144. Binary Tree Preorder Traversal (Обход предварительного порядка двоичного дерева)
+30) 145. Binary Tree Postorder Traversal (Обход почтового заказа двоичного дерева)
+
 
 
 101) 1491. Average Salary Excluding the Minimum and Maximum Salary(Средняя заработная плата без учета минимальной и максимальной зп)
@@ -1392,12 +1394,14 @@ Input: root = [1]
 Output: [1]
 '''
 
+
 ################## *** Вариант 1 *** ##################
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def preorderTraversal(self, root_: TreeNode | None) -> list[int]:
@@ -1408,6 +1412,7 @@ class Solution:
             yield from preorder(root.right)
 
         return list(preorder(root_))
+
 
 node4 = TreeNode(4)
 node5 = TreeNode(5)
@@ -1421,6 +1426,7 @@ solution = Solution()
 # Вызываем метод preorderTraversal и выводим результат в консоль
 result = solution.preorderTraversal(root)
 print(result)
+
 
 ################## *** Вариант 2*** ##################
 class TreeNode:
@@ -1471,6 +1477,67 @@ solution = Solution()
 result = solution.preorderTraversal(root)
 print(result)
 
+# ***********************************************************************************************************************
+'''
+30) 145. Binary Tree Postorder Traversal
+Given the root of a binary tree, return the postorder traversal of its nodes' values.
+Учитывая корень бинарного дерева, возвращайте обход значений его узлов в обратном порядке.
+ 
+Example 1:
+Input: root = [1,null,2,3]
+Output: [3,2,1]
+
+Example 2:
+Input: root = []
+Output: []
+
+Example 3:
+Input: root = [1]
+Output: [1]
+'''
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def postorderTraversal(self, root: TreeNode) -> list[int]:
+        a = []
+        if not root:
+            return
+        if root.left:
+            a += self.postorderTraversal(root.left)
+        if root.right:
+            a += self.postorderTraversal(root.right)
+        a.append(root.val)
+        return a
+
+
+# Создание дерева
+#       1
+#      / \
+#     2   3
+#    / \
+#   4   5
+
+tree = TreeNode(1)
+tree.left = TreeNode(2)
+tree.right = TreeNode(3)
+tree.left.left = TreeNode(4)
+tree.left.right = TreeNode(5)
+
+# Создание объекта класса Solution
+solution = Solution()
+
+# Вызов метода postorderTraversal
+result = solution.postorderTraversal(tree)
+
+# Вывод результата в консоль
+print(result)
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
