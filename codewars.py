@@ -15,9 +15,7 @@
     5) Get the Middle Character (Получить средний персонаж)
     6) Mumbling(бормотание)
     7) You're a square! (Ты квадрат!)
-
-
-
+    8) List Filtering (Фильтрация списка)
 
 (6 kyu)
     1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
@@ -340,7 +338,15 @@ print(is_square(16))  # True
 print(is_square(4))  # True
 print(is_square(25))  # True
 print(is_square(26))  # False
+'''
+(7 kyu)
+ 8) List Filtering (Фильтрация списка)
+In this kata you will create a function that takes a list of non-negative integers and
+strings and returns a new list with the strings filtered out.
+'''
 
+def filter_list(l):
+    return [i for i in l if i != str(i)]
 
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
