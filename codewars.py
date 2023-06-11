@@ -347,8 +347,10 @@ In this kata you will create a function that takes a list of non-negative intege
 strings and returns a new list with the strings filtered out.
 '''
 
+
 def filter_list(l):
     return [i for i in l if i != str(i)]
+
 
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
@@ -445,6 +447,7 @@ spinWords( "This is a test") => returns "This is a test"
 spinWords( "This is another test" )=> returns "This is rehtona test"
 '''
 
+
 # def spin_words(sentence):
 #     a = sentence.split()
 #     print(type(a))
@@ -465,9 +468,7 @@ def spin_words(sentence: str) -> str:
     return ' '.join(l)
 
 
-print(spin_words("Hey fellow warriors"))
-
-
+print(spin_words("Hey fellow warriors"))  # Hey wollef sroirraw
 
 ### *** (5 kyu) *** ###
 # ***********************************************************************************************************************
