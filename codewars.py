@@ -20,6 +20,8 @@
 (6 kyu)
     1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
     2) Multiples of 3 or 5 (Кратные 3 или 5)
+    3) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
+
 (5 kyu)
     1) Human Readable Time (Человекочитаемое время)
 '''
@@ -424,6 +426,37 @@ print(solution(10))
 ################## *** Вариант 2 *** ##################
 solution = lambda n: sum(i for i in range(n) if i % 3 == 0 or i % 5 == 0)
 print(solution(10))
+
+# ***********************************************************************************************************************
+'''
+(6 kyu)
+3) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
+
+Write a function that takes in a string of one or more words, and returns the same string, but with all five or more 
+letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. 
+Spaces will be included only when more than one word is present.
+
+Напишите функцию, которая принимает строку из одного или нескольких слов и возвращает ту же строку, но со всеми пятью 
+или более буквенными словами наоборот (точно так же, как название этого Ката). Передаваемые строки будут состоять 
+только из букв и пробелов. Пробелы будут включены только в том случае, если присутствует более одного слова.
+
+spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" 
+spinWords( "This is a test") => returns "This is a test" 
+spinWords( "This is another test" )=> returns "This is rehtona test"
+'''
+
+def spin_words(sentence: str) -> str:
+    l = []
+    for i in [i for i in sentence.split()]:
+        if len(i) >= 5:
+            i = i[::-1]
+        l.append(i)
+    return ' '.join(l)
+
+
+print(spin_words("Hey fellow warriors"))
+
+
 
 ### *** (5 kyu) *** ###
 # ***********************************************************************************************************************
