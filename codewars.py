@@ -445,6 +445,17 @@ spinWords( "This is a test") => returns "This is a test"
 spinWords( "This is another test" )=> returns "This is rehtona test"
 '''
 
+# def spin_words(sentence):
+#     a = sentence.split()
+#     print(type(a))
+#     emp_l = []
+#     for i in a:
+#         if len(i) >= 5:
+#             i = i[::-1]
+#             print(i)
+#         emp_l.append(i)
+#     return ' '.join(emp_l)
+
 def spin_words(sentence: str) -> str:
     l = []
     for i in [i for i in sentence.split()]:
