@@ -207,8 +207,9 @@ print(disemvowel(a))  # Ths wbst s fr lsrs LL!
 
 
 def high_and_low(numbers):
-    b = list(map(int, numbers.split()))
-    return f'{max(b)} {min(b)}'
+    l = list(map(int, numbers.split()))
+    # l = [int(i) for i in numbers.split()]
+    return f'{max(l)} {min(l)}'
 
 
 s = '8 3 -5 42 -1 0 0 -9 4 7 4 -4'
