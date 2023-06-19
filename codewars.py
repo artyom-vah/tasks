@@ -18,11 +18,14 @@
     6) Mumbling(бормотание)
     7) You're a square! (Ты квадрат!)
     8) List Filtering (Фильтрация списка)
+    9) Isograms (Изограммы)
+
 
 (6 kyu)
     1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
     2) Multiples of 3 or 5 (Кратные 3 или 5)
     3) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
+    4) Find the odd int (Найдите нечетное целое)
 
 (5 kyu)
     1) Human Readable Time (Человекочитаемое время)
@@ -366,14 +369,39 @@ print(is_square(25))  # True
 print(is_square(26))  # False
 '''
 (7 kyu)
- 8) List Filtering (Фильтрация списка)
+8) List Filtering (Фильтрация списка)
 In this kata you will create a function that takes a list of non-negative integers and
 strings and returns a new list with the strings filtered out.
 '''
 
-
 def filter_list(l):
     return [i for i in l if i != str(i)]
+
+# ***********************************************************************************************************************
+'''
+(7 kyu)
+9) Isograms (Изограммы)
+
+An isogram is a word that has no repeating letters, consecutive or non-consecutive.
+Implement a function that determines whether a string that contains only letters is an isogram.
+Assume the empty string is an isogram. Ignore letter case
+  
+Изограмма — это слово, в котором нет повторяющихся букв, последовательных или непоследовательных. 
+Реализуйте функцию, определяющую, является ли строка, содержащая только буквы, изограммой. 
+Предположим, что пустая строка является изограммой. Игнорировать регистр букв
+'''
+
+def is_isogram(string):
+    string = string.lower()
+    if len(string) == len(set(string)):
+        return True
+    return False
+
+
+s1 = 'Dermatoglyphics'
+s2 = 'moose'
+print(is_isogram(s1))  # True
+print(is_isogram(s2))  # False
 
 
 # ***********************************************************************************************************************
@@ -493,7 +521,31 @@ def spin_words(sentence: str) -> str:
 
 
 print(spin_words("Hey fellow warriors"))  # Hey wollef sroirraw
+# ***********************************************************************************************************************
+'''
+(6 kyu)
+4) Find the odd int (Найдите нечетное целое
 
+Given an array of integers, find the one that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+
+Дан массив целых чисел, найдите то, которое встречается нечетное количество раз. 
+Всегда будет только одно целое число, которое встречается нечетное количество раз.
+
+Examples
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+
+'''
+
+def find_it(seq):
+    for i in seq:
+        if seq.count(i) % 2 == 1:
+            return i
+# ***********************************************************************************************************************
 ### *** (5 kyu) *** ###
 # ***********************************************************************************************************************
 '''
