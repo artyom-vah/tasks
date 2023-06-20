@@ -312,23 +312,18 @@ accum("cwAt") -> "C-Ww-Aaa-Tttt"
 '''
 
 
-def accum(s):
-    # your codedef accum(s):
-    s = s.lower()  # Приводим строку к нижнему регистру
-    result = []  # Список для хранения промежуточных значений
-    count = 1  # Счетчик для определения количества повторений символа
+def accum(s: str) -> str:
+    res = ''
+    for i, count in enumerate(s):
+        res += count.upper() + count.lower() * i + '-'
+    return res[:-1]
 
-    for char in s:
-        repeated_char = char * count  # Повторяем символ в соответствии с текущим счетчиком
-        capitalized_char = repeated_char.capitalize()  # Первую букву делаем заглавной
-        result.append(capitalized_char)  # Добавляем полученное значение в список
-        count += 1  # Увеличиваем счетчик
 
-    return '-'.join(result)  # Возвращаем объединенную строку с использованием дефисов
-
+print(accum('cwAt'))
+print(accum("abcd"))
 
 # ***********************************************************************************************************************
-print(accum("abcd"))
+
 '''
 (7 kyu)
 7) You're a square! (Ты квадрат!)
