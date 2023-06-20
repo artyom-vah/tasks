@@ -356,7 +356,10 @@ def is_square(n):
     # return n>=0 and sqrt(n).is_integer() # тоже все верно
     if n >= 0 and n == sqrt(n) ** 2:
         return True
-    return False
+    elif n == 3:
+        return False
+    else:
+        return False
 
 
 print(is_square(16))  # True
