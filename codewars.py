@@ -354,12 +354,8 @@ from math import sqrt
 def is_square(n):
     # return n >= 0 and (n ** 0.5) % 1 == 0 # тоже все верно
     # return n>=0 and sqrt(n).is_integer() # тоже все верно
-    if n == 0:
+    if n >= 0 and n == sqrt(n) ** 2:
         return True
-    elif n > 0:
-        if n == sqrt(n) ** 2:
-            return True
-        return False
     return False
 
 
