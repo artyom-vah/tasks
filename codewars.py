@@ -26,6 +26,8 @@
     2) Multiples of 3 or 5 (Кратные 3 или 5)
     3) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
     4) Find the odd int (Найдите нечетное целое)
+    5) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
+
 
 (5 kyu)
     1) Human Readable Time (Человекочитаемое время)
@@ -368,8 +370,10 @@ In this kata you will create a function that takes a list of non-negative intege
 strings and returns a new list with the strings filtered out.
 '''
 
+
 def filter_list(l):
     return [i for i in l if i != str(i)]
+
 
 # ***********************************************************************************************************************
 '''
@@ -385,6 +389,7 @@ Assume the empty string is an isogram. Ignore letter case
 Предположим, что пустая строка является изограммой. Игнорировать регистр букв
 '''
 
+
 def is_isogram(string):
     string = string.lower()
     if len(string) == len(set(string)):
@@ -396,7 +401,6 @@ s1 = 'Dermatoglyphics'
 s2 = 'moose'
 print(is_isogram(s1))  # True
 print(is_isogram(s2))  # False
-
 
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
@@ -535,12 +539,38 @@ Examples
 
 '''
 
+
 def find_it(seq):
     for i in seq:
         if seq.count(i) % 2 == 1:
             return i
+
+
+# ***********************************************************************************************************************
+'''
+(6 kyu)
+5) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
+    16  -->  1 + 6 = 7
+   942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+'''
+
+
+def digital_root(num):
+    l = [int(i) for i in str(num)]
+    if sum(l) > 9:
+        return digital_root(sum(l))
+    return sum(l)
+
+
+s1 = 493193
+print(digital_root(s1))  # 2
+
 # ***********************************************************************************************************************
 ### *** (5 kyu) *** ###
+
+
 # ***********************************************************************************************************************
 '''
 (5 kyu)
