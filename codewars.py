@@ -557,6 +557,18 @@ def find_it(seq):
 '''
 
 
+################## *** Вариант 1 *** ##################
+def digital_root(num):
+    l = []
+    while num > 0:
+        l.append(num % 10)
+        num //= 10
+    if sum(l) > 9:
+        return digital_root(sum(l))
+    return sum(l)
+
+
+################## *** Вариант 2 *** ##################
 def digital_root(num):
     l = [int(i) for i in str(num)]
     if sum(l) > 9:
