@@ -19,6 +19,8 @@
     7) You're a square! (Ты квадрат!)
     8) List Filtering (Фильтрация списка)
     9) Isograms (Изограммы)
+    10) Exes and Ohs (Бывшие и Оз)
+
 
 
 (6 kyu)
@@ -296,6 +298,19 @@ def get_middle(s):
 print(get_middle("testing"))  # t
 print(get_middle("test"))  # es
 print(get_middle("middle"))  # dd
+
+
+################## *** Вариант 4 *** #################
+def get_middle(s):
+    if len(s) % 2 == 1:
+        return s[len(s) // 2]
+    return s[len(s) // 2 - 1: len(s) // 2 + 1]
+
+
+print(get_middle('test'))  # es
+print(get_middle('middle'))  # dd
+print(get_middle('testing'))  # t
+
 # ***********************************************************************************************************************
 '''
 (7 kyu)
@@ -401,6 +416,31 @@ s1 = 'Dermatoglyphics'
 s2 = 'moose'
 print(is_isogram(s1))  # True
 print(is_isogram(s2))  # False
+
+
+'''
+(7 kyu)
+10) Exes and Ohs (Бывшие и Оз)
+
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive.
+The string can contain any char.
+Проверьте, содержит ли строка одинаковое количество «x» и «o». Метод должен возвращать логическое значение и не 
+учитывать регистр. Строка может содержать любой символ.
+
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+'''
+def xo(s):
+    s = s.lower()
+    if s.count('x') == s.count('o'):
+        return True
+    return False
+
+print(funk("ooxXm")) # True
+
 
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
