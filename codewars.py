@@ -20,6 +20,8 @@
     8) List Filtering (Фильтрация списка)
     9) Isograms (Изограммы)
     10) Exes and Ohs (Бывшие и Оз)
+    11) Jaden Casing Strings
+
 
 
 
@@ -440,6 +442,21 @@ def xo(s):
     return False
 
 print(funk("ooxXm")) # True
+
+# ***********************************************************************************************************************
+'''
+(7 kyu)
+11) Jaden Casing Strings
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+'''
+def to_jaden_case(string):
+    l = string.split()
+    res = [i.capitalize() for i in l]
+    return ' '.join(res)
+
+print(to_jaden_case("How can mirrors be real if our eyes aren't real"))
+# ***********************************************************************************************************************
 
 
 # ***********************************************************************************************************************

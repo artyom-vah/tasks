@@ -12,7 +12,8 @@
 
 
 ### **Стек:**
-![python version](https://img.shields.io/badge/Python-3.10-green)  
+![python version](https://img.shields.io/badge/Python-3.10-green)
+
 
 
 
