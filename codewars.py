@@ -21,6 +21,7 @@
     9) Isograms (Изограммы)
     10) Exes and Ohs (Бывшие и Оз)
     11) Jaden Casing Strings
+    12) Shortest Word (Самое короткое слово)
 
 
 
@@ -419,7 +420,6 @@ s2 = 'moose'
 print(is_isogram(s1))  # True
 print(is_isogram(s2))  # False
 
-
 '''
 (7 kyu)
 10) Exes and Ohs (Бывшие и Оз)
@@ -435,13 +435,16 @@ XO("ooxXm") => true
 XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 XO("zzoo") => false
 '''
+
+
 def xo(s):
     s = s.lower()
     if s.count('x') == s.count('o'):
         return True
     return False
 
-print(funk("ooxXm")) # True
+
+print(funk("ooxXm"))  # True
 
 # ***********************************************************************************************************************
 '''
@@ -450,14 +453,37 @@ print(funk("ooxXm")) # True
 Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
 Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 '''
+
+
 def to_jaden_case(string):
     l = string.split()
     res = [i.capitalize() for i in l]
     return ' '.join(res)
 
+
 print(to_jaden_case("How can mirrors be real if our eyes aren't real"))
 # ***********************************************************************************************************************
+'''
+(7 kyu)
+12) Shortest Word (Самое короткое слово)
+Simple, given a string of words, return the length of the shortest word(s).
+String will never be empty and you do not need to account for different data types.
 
+Просто, учитывая строку слов, вернуть длину кратчайшего слова (слов). 
+Строка никогда не будет пустой, и вам не нужно учитывать разные типы данных.
+'''
+
+
+def find_short(s):
+    # return min([len(i) for i in s.split()]) можно так
+    res = []
+    for i in s.split():
+        res.append(len(i))
+    return min(res)
+
+
+s1 = "bitcoin take over the world maybe who knows perhaps"
+print(find_short(s1))
 
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
