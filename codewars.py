@@ -40,7 +40,8 @@
     8) Find The Parity Outlier
     9) Counting Duplicates (Подсчет дубликатов)
     10) Duplicate Encoder (Дублирующий кодировщик)
-
+    11) Take a Ten Minutes Walk - 'не сделал'
+    12) Replace With Alphabet Position (Заменить позицией в алфавитном порядке)
 
 
 
@@ -904,6 +905,8 @@ Should return: 11 (the only odd number)
 [160, 3, 1719, 19, 11, 13, -21]
 Should return: 160 (the only even number)
 '''
+
+
 def find_out(integers: list) -> int:
     l1 = [i for i in integers if i % 2 == 0]
     l2 = [i for i in integers if i % 2 == 1]
@@ -912,8 +915,8 @@ def find_out(integers: list) -> int:
     return l2[0]
 
 
-print(find_out([2, 4, 0, 100, 4, 11, 2602, 36])) # 11
-print(find_out([160, 3, 1719, 19, 11, 13, -21])) # 160
+print(find_out([2, 4, 0, 100, 4, 11, 2602, 36]))  # 11
+print(find_out([160, 3, 1719, 19, 11, 13, -21]))  # 160
 
 # ***********************************************************************************************************************
 '''
@@ -929,6 +932,8 @@ and lowercase) and numeric digits.
 буквы (как прописные, так и строчные) и числовые цифры.
 
 '''
+
+
 def duplicate_count(text):
     text = text.lower()
     d = {i: text.count(i) for i in text}
@@ -957,6 +962,7 @@ original string. Ignore capitalization when determining if a character is a dupl
 исходной строке. Игнорируйте заглавные буквы при определении того, является ли символ дубликатом.
 '''
 
+
 def duplicate_encode(word):
     res = ''
     word = word.lower()
@@ -968,14 +974,46 @@ def duplicate_encode(word):
     return res
 
 
-print(duplicate_encode("din")) # (((
-print(duplicate_encode("recede")) # ()()()
-print(duplicate_encode("Success")) # )())())
-print(duplicate_encode("(( @")) # ))((
+print(duplicate_encode("din"))  # (((
+print(duplicate_encode("recede"))  # ()()()
+print(duplicate_encode("Success"))  # )())())
+print(duplicate_encode("(( @"))  # ))((
+
+# ***********************************************************************************************************************
+'''
+(6 kyu)
+
+12) Replace With Alphabet Position (Заменить позицией в алфавитном порядке)
+
+In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+If anything in the text isn't a letter, ignore it and don't return it.
+
+В этой ката вы должны, учитывая строку, заменить каждую букву ее позицией в алфавите. 
+Если что-то в тексте не является буквой, игнорируйте это и не возвращайте.
+'''
+
+import string
+
+
+def alphabet_position(text):
+    d = {key: str(i) for i, key in enumerate(string.ascii_lowercase, 1)}
+    res = ''
+    for i in text.lower():
+        if i.isalpha():
+            res += d[i] + ' '
+    return res[:-1]
+
+
+print(alphabet_position("The sunset sets at twelve o' clock."))
+# 20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11
 
 # ***********************************************************************************************************************
 
+# ***********************************************************************************************************************
 
+# ***********************************************************************************************************************
+
+# ***********************************************************************************************************************
 ### *** (5 kyu) *** ###
 
 
