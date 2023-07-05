@@ -25,6 +25,8 @@
     13) Complementary DNA (Комплементарная ДНК)
     14) Credit Card Mask (Маска кредитной карты)
     15) Sum of two lowest positive integers (Сумма двух наименьших положительных целых чисел)
+    16) Beginner Series #3 Sum of Numbers (Серия для начинающих №3 Сумма чисел)
+
 
 
 
@@ -571,11 +573,36 @@ def sum_two_smallest_numbers(numbers):
 
 print(sum_two_smallest_numbers([10, 343445353, 3453445, 3453545353453]))
 # ***********************************************************************************************************************
+'''
+16) Beginner Series #3 Sum of Numbers (Серия для начинающих №3 Сумма чисел)
 
+Given two integers a and b, which can be positive or negative, find the sum of all the integers between and
+including them and return it. If the two numbers are equal return a or b.
+
+Note: a and b are not ordered!
+(1, 0) --> 1 (1 + 0 = 1)
+(1, 2) --> 3 (1 + 2 = 3)
+(0, 1) --> 1 (0 + 1 = 1)
+(1, 1) --> 1 (1 since both are same)
+(-1, 0) --> -1 (-1 + 0 = -1)
+(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+'''
 
 # ***********************************************************************************************************************
+def get_sum(a, b):
+    # можно так
+    if a == b:
+        return a
+    elif a > b:
+        return sum([i for i in range(b, a + 1)])
+    elif a < b:
+        return sum([i for i in range(a, b + 1)])
+
+    # а можно так
+    # return a if a == b else sum([i for i in range(b, a + 1)] if a > b else [i for i in range(a, b + 1)])
 
 
+print(get_sum(1, 0)) # 1
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
