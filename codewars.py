@@ -35,6 +35,10 @@
     3) Find the odd int (Найдите нечетное целое)
     4) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
     5) Who likes it?
+    6) Array.diff
+    7) Bit Counting (Подсчет битов)
+
+
 
 
 
@@ -660,7 +664,10 @@ def solution(n):
             l.append(i)
     return sum(l)
 
+
 print(solution(10))
+
+
 ################## *** Вариант 2 *** ##################
 def solution(number: int) -> int:
     return sum([x for x in range(number) if x % 3 == 0 or x % 5 == 0])
@@ -690,6 +697,7 @@ spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw"
 spinWords( "This is a test") => returns "This is a test" 
 spinWords( "This is another test" )=> returns "This is rehtona test"
 '''
+
 
 def spin_words(sentence: str) -> str:
     l = []
@@ -787,6 +795,8 @@ print(digital_root(493193))  # 2
 ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
 ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
 '''
+
+
 def likes(names):
     if len(names) == 0:
         return "no one likes this"
@@ -806,7 +816,80 @@ print(likes(["Jacob", "Alex"]))
 print(likes(["Max", "John", "Mark"]))
 print(likes(["Alex", "Jacob", "Mark", "Max"]))
 
+'''
+(6 kyu)
+
+6) Array.diff
+Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+It should remove all values from list a, which are present in list b keeping their order.
+
+Ваша цель в этом ката — реализовать функцию разности, которая вычитает один список из другого и возвращает результат. 
+Он должен удалить все значения из списка a, которые присутствуют в списке b, сохраняя их порядок.
+
+array_diff([1,2],[1]) == [2]
+array_diff([1,2,2,2,3],[2]) == [1,3]
+'''
+
+
+def array_diff(a, b):
+    res = []
+    for i in a:
+        if i not in b:
+            res.append(i)
+    return res
+    # return [i for i in a if i not in b]
+
+
+print(array_diff([1, 2], [1]))  # [2]
+print(array_diff([1, 2, 2], [1]))  # [2, 2]
 # ***********************************************************************************************************************
+
+
+'''
+(6 kyu)
+
+7) Bit Counting (Подсчет битов)
+
+Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary 
+representation of that number. You can guarantee that input is non-negative.
+Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+
+Напишите функцию, которая принимает целое число в качестве входных данных и возвращает количество битов, равных единице
+в двоичном представлении этого числа. Вы можете гарантировать, что входные данные неотрицательны.
+Пример: Двоичное представление 1234 равно 10011010010, поэтому в этом случае функция должна возвращать 5
+'''
+
+
+################## *** Вариант 1 *** ##################
+def count_bits(n):
+    return str(bin(n)[2:]).count('1')
+
+
+################## *** Вариант 2 *** #################
+def count_bits(n):
+    return [i for i in bin(n)[2:]].count('1')
+
+
+################## *** Вариант 3 *** #################
+def count_bits(n):
+    return bin(n).count('1')
+
+
+print(funk(1234))  # 5
+
+#
+# ***********************************************************************************************************************
+
+
+# ***********************************************************************************************************************
+
+
+# ***********************************************************************************************************************
+
+
+# ***********************************************************************************************************************
+
+
 ### *** (5 kyu) *** ###
 
 
