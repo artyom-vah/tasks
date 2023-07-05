@@ -38,6 +38,9 @@
     6) Array.diff
     7) Bit Counting (Подсчет битов)
     8) Find The Parity Outlier
+    9) Counting Duplicates (Подсчет дубликатов)
+
+
 
 
 
@@ -911,8 +914,33 @@ print(find_out([2, 4, 0, 100, 4, 11, 2602, 36])) # 11
 print(find_out([160, 3, 1719, 19, 11, 13, -21])) # 160
 
 # ***********************************************************************************************************************
+'''
+(6 kyu)
+
+9) Counting Duplicates (Подсчет дубликатов)
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that
+occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase
+and lowercase) and numeric digits.
+
+Напишите функцию, которая будет возвращать количество различных нечувствительных к регистру буквенных символов и цифровых 
+цифр, которые встречаются во входной строке более одного раза. Можно предположить, что входная строка содержит только
+буквы (как прописные, так и строчные) и числовые цифры.
+
+'''
+def duplicate_count(text):
+    text = text.lower()
+    d = {i: text.count(i) for i in text}
+    l = [i for i in d if d[i] >= 2]
+    return len(l)
 
 
+print(duplicate_count("abcde"))
+print(duplicate_count("aabbcde"))
+print(duplicate_count("aabBcde"))
+print(duplicate_count("indivisibility"))
+print(duplicate_count("Indivisibilities"))
+print(duplicate_count("aA11"))
+print(duplicate_count("ABBA"))
 # ***********************************************************************************************************************
 
 
