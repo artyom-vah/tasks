@@ -39,6 +39,8 @@
     7) Bit Counting (Подсчет битов)
     8) Find The Parity Outlier
     9) Counting Duplicates (Подсчет дубликатов)
+    10) Duplicate Encoder (Дублирующий кодировщик)
+
 
 
 
@@ -942,7 +944,34 @@ print(duplicate_count("Indivisibilities"))
 print(duplicate_count("aA11"))
 print(duplicate_count("ABBA"))
 # ***********************************************************************************************************************
+'''
+(6 kyu)
 
+10) Duplicate Encoder (Дублирующий кодировщик)
+ The goal of this exercise is to convert a string to a new string where each character in the new string is "(" 
+if that character appears only once in the original string, or ")" if that character appears more than once in the 
+original string. Ignore capitalization when determining if a character is a duplicate.
+
+Цель этого упражнения - преобразовать строку в новую строку, где каждый символ в новой строке равен "("
+, если этот символ появляется только один раз в исходной строке, или ")", если этот символ появляется более одного раза в
+исходной строке. Игнорируйте заглавные буквы при определении того, является ли символ дубликатом.
+'''
+
+def duplicate_encode(word):
+    res = ''
+    word = word.lower()
+    for i in word:
+        if word.count(i) == 1:
+            res += '('
+        else:
+            res += ')'
+    return res
+
+
+print(duplicate_encode("din")) # (((
+print(duplicate_encode("recede")) # ()()()
+print(duplicate_encode("Success")) # )())())
+print(duplicate_encode("(( @")) # ))((
 
 # ***********************************************************************************************************************
 
