@@ -29,17 +29,11 @@
     17) Two to One
 
 
-################## *** Вариант 1 *** ##################
-
-
-
-
 (6 kyu)
-    1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
-    2) Multiples of 3 or 5 (Кратные 3 или 5)
-    3) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
-    4) Find the odd int (Найдите нечетное целое)
-    5) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
+    1) Multiples of 3 or 5 (Кратные 3 или 5)
+    2) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
+    3) Find the odd int (Найдите нечетное целое)
+    4) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
 
 
 (5 kyu)
@@ -636,9 +630,120 @@ def longest(a1, a2):
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
+
+# ***********************************************************************************************************************
 '''
 (6 kyu) 
-1) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
+1) Multiples of 3 or 5 (Кратные 3 или 5)
+
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. 
+The sum of these multiples is 23. Finish the solution so that it returns the sum of all the multiples 
+of 3 or 5 below the number passed in. Additionally, if the number is negative, return 
+0 (for languages that do have them). Note: If the number is a multiple of both 3 and 5, 
+only count it once.
+
+Если мы перечислим все натуральные числа ниже 10, кратные 3 или 5, мы получим 3, 5, 6 и 9.
+Сумма этих кратных равна 23. Завершите решение так, чтобы оно возвращало сумму всех значений, 
+кратных 3 или 5, ниже переданного числа. Кроме того, если число отрицательное, верните 
+0 (для языков, в которых они есть). Примечание: Если число кратно как 3, так и 5, 
+подсчитайте его только один раз.
+'''
+
+
+################## *** Вариант 1 *** ##################
+def solution(n):
+    l = []
+    for i in range(1, n):
+        if i % 3 == 0 or i % 5 == 0:
+            l.append(i)
+    return sum(l)
+
+print(solution(10))
+################## *** Вариант 2 *** ##################
+def solution(number: int) -> int:
+    return sum([x for x in range(number) if x % 3 == 0 or x % 5 == 0])
+
+
+print(solution(10))
+
+################## *** Вариант 3 *** ##################
+solution = lambda n: sum(i for i in range(n) if i % 3 == 0 or i % 5 == 0)
+print(solution(10))
+
+# ***********************************************************************************************************************
+'''
+(6 kyu)
+
+2) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
+
+Write a function that takes in a string of one or more words, and returns the same string, but with all five or more 
+letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. 
+Spaces will be included only when more than one word is present.
+
+Напишите функцию, которая принимает строку из одного или нескольких слов и возвращает ту же строку, но со всеми пятью 
+или более буквенными словами наоборот (точно так же, как название этого Ката). Передаваемые строки будут состоять 
+только из букв и пробелов. Пробелы будут включены только в том случае, если присутствует более одного слова.
+
+spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" 
+spinWords( "This is a test") => returns "This is a test" 
+spinWords( "This is another test" )=> returns "This is rehtona test"
+'''
+
+
+# def spin_words(sentence):
+#     a = sentence.split()
+#     print(type(a))
+#     emp_l = []
+#     for i in a:
+#         if len(i) >= 5:
+#             i = i[::-1]
+#             print(i)
+#         emp_l.append(i)
+#     return ' '.join(emp_l)
+
+def spin_words(sentence: str) -> str:
+    l = []
+    for i in [i for i in sentence.split()]:
+        if len(i) >= 5:
+            i = i[::-1]
+        l.append(i)
+    return ' '.join(l)
+
+
+print(spin_words("Hey fellow warriors"))  # Hey wollef sroirraw
+# ***********************************************************************************************************************
+'''
+(6 kyu)
+
+3) Find the odd int (Найдите нечетное целое
+
+Given an array of integers, find the one that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+
+Дан массив целых чисел, найдите то, которое встречается нечетное количество раз. 
+Всегда будет только одно целое число, которое встречается нечетное количество раз.
+
+Examples
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+
+'''
+
+
+def find_it(seq):
+    for i in seq:
+        if seq.count(i) % 2 == 1:
+            return i
+
+
+# ***********************************************************************************************************************
+'''
+(6 kyu)
+
+4) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
 
 Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until 
 a single-digit number is produced. The input will be a non-negative integer.
@@ -679,136 +784,6 @@ def digital_root(n):
 
 
 print(digital_root(493193))  # 2
-
-# ***********************************************************************************************************************
-'''
-(6 kyu) 
-    2) Multiples of 3 or 5 (Кратные 3 или 5)
-
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. 
-The sum of these multiples is 23. Finish the solution so that it returns the sum of all the multiples 
-of 3 or 5 below the number passed in. Additionally, if the number is negative, return 
-0 (for languages that do have them). Note: If the number is a multiple of both 3 and 5, 
-only count it once.
-
-Если мы перечислим все натуральные числа ниже 10, кратные 3 или 5, мы получим 3, 5, 6 и 9.
-Сумма этих кратных равна 23. Завершите решение так, чтобы оно возвращало сумму всех значений, 
-кратных 3 или 5, ниже переданного числа. Кроме того, если число отрицательное, верните 
-0 (для языков, в которых они есть). Примечание: Если число кратно как 3, так и 5, 
-подсчитайте его только один раз.
-'''
-
-
-################## *** Вариант 1 *** ##################
-def solution(number: int) -> int:
-    return sum([x for x in range(number) if x % 3 == 0 or x % 5 == 0])
-
-
-print(solution(10))
-
-################## *** Вариант 2 *** ##################
-solution = lambda n: sum(i for i in range(n) if i % 3 == 0 or i % 5 == 0)
-print(solution(10))
-
-# ***********************************************************************************************************************
-'''
-(6 kyu)
-3) Stop gninnipS My sdroW! (Остановить гниннипс Мой sdroW!)
-
-Write a function that takes in a string of one or more words, and returns the same string, but with all five or more 
-letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. 
-Spaces will be included only when more than one word is present.
-
-Напишите функцию, которая принимает строку из одного или нескольких слов и возвращает ту же строку, но со всеми пятью 
-или более буквенными словами наоборот (точно так же, как название этого Ката). Передаваемые строки будут состоять 
-только из букв и пробелов. Пробелы будут включены только в том случае, если присутствует более одного слова.
-
-spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" 
-spinWords( "This is a test") => returns "This is a test" 
-spinWords( "This is another test" )=> returns "This is rehtona test"
-'''
-
-
-# def spin_words(sentence):
-#     a = sentence.split()
-#     print(type(a))
-#     emp_l = []
-#     for i in a:
-#         if len(i) >= 5:
-#             i = i[::-1]
-#             print(i)
-#         emp_l.append(i)
-#     return ' '.join(emp_l)
-
-def spin_words(sentence: str) -> str:
-    l = []
-    for i in [i for i in sentence.split()]:
-        if len(i) >= 5:
-            i = i[::-1]
-        l.append(i)
-    return ' '.join(l)
-
-
-print(spin_words("Hey fellow warriors"))  # Hey wollef sroirraw
-# ***********************************************************************************************************************
-'''
-(6 kyu)
-4) Find the odd int (Найдите нечетное целое
-
-Given an array of integers, find the one that appears an odd number of times.
-There will always be only one integer that appears an odd number of times.
-
-Дан массив целых чисел, найдите то, которое встречается нечетное количество раз. 
-Всегда будет только одно целое число, которое встречается нечетное количество раз.
-
-Examples
-[7] should return 7, because it occurs 1 time (which is odd).
-[0] should return 0, because it occurs 1 time (which is odd).
-[1,1,2] should return 2, because it occurs 1 time (which is odd).
-[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
-[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
-
-'''
-
-
-def find_it(seq):
-    for i in seq:
-        if seq.count(i) % 2 == 1:
-            return i
-
-
-# ***********************************************************************************************************************
-'''
-(6 kyu)
-5) Sum of Digits / Digital Root (Сумма цифр / цифровой корень)
-    16  -->  1 + 6 = 7
-   942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
-132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
-493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
-'''
-
-
-################## *** Вариант 1 *** ##################
-def digital_root(num):
-    l = []
-    while num > 0:
-        l.append(num % 10)
-        num //= 10
-    if sum(l) > 9:
-        return digital_root(sum(l))
-    return sum(l)
-
-
-################## *** Вариант 2 *** ##################
-def digital_root(num):
-    l = [int(i) for i in str(num)]
-    if sum(l) > 9:
-        return digital_root(sum(l))
-    return sum(l)
-
-
-s1 = 493193
-print(digital_root(s1))  # 2
 
 # ***********************************************************************************************************************
 ### *** (5 kyu) *** ###
