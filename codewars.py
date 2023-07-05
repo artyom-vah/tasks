@@ -26,8 +26,10 @@
     14) Credit Card Mask (Маска кредитной карты)
     15) Sum of two lowest positive integers (Сумма двух наименьших положительных целых чисел)
     16) Beginner Series #3 Sum of Numbers (Серия для начинающих №3 Сумма чисел)
+    17) Two to One
 
 
+################## *** Вариант 1 *** ##################
 
 
 
@@ -556,7 +558,7 @@ print(maskify("4556364607935616"))
 # ***********************************************************************************************************************
 '''
 (7 kyu)
-    15) Sum of two lowest positive integers (Сумма двух наименьших положительных целых чисел)
+15) Sum of two lowest positive integers (Сумма двух наименьших положительных целых чисел)
     
 Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers.
  No floats or non-positive integers will be passed.
@@ -574,6 +576,7 @@ def sum_two_smallest_numbers(numbers):
 print(sum_two_smallest_numbers([10, 343445353, 3453445, 3453545353453]))
 # ***********************************************************************************************************************
 '''
+(7 kyu)
 16) Beginner Series #3 Sum of Numbers (Серия для начинающих №3 Сумма чисел)
 
 Given two integers a and b, which can be positive or negative, find the sum of all the integers between and
@@ -585,10 +588,9 @@ Note: a and b are not ordered!
 (0, 1) --> 1 (0 + 1 = 1)
 (1, 1) --> 1 (1 since both are same)
 (-1, 0) --> -1 (-1 + 0 = -1)
-(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
-'''
+(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)'''
 
-# ***********************************************************************************************************************
+
 def get_sum(a, b):
     # можно так
     if a == b:
@@ -603,6 +605,30 @@ def get_sum(a, b):
 
 
 print(get_sum(1, 0)) # 1
+# ***********************************************************************************************************************
+'''
+(7 kyu)
+17) Two to One
+
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+'''
+
+################## *** Вариант 1 *** ##################
+def longest(a1, a2):
+    set3 = set(a1).union(a2)
+    return ''.join(sorted(set3))
+
+################## *** Вариант 2 *** ##################
+def longest(a1, a2):
+    return ''.join(sorted(set([i for i in (a1 + a2)])))
+# ***********************************************************************************************************************
+
+
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
