@@ -27,7 +27,7 @@
     15) Sum of two lowest positive integers (Сумма двух наименьших положительных целых чисел)
     16) Beginner Series #3 Sum of Numbers (Серия для начинающих №3 Сумма чисел)
     17) Two to One
-    18)
+    18) Friend or Foe? (Друг или враг?)
 
 
 (6 kyu)
@@ -641,7 +641,24 @@ def longest(a1, a2):
 
 # ***********************************************************************************************************************
 
+'''
+   (7 kyu)
+   
+18) Friend or Foe? (Друг или враг?)
+Make a program that filters a list of strings and returns a list with only your friends name in it.
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, 
+you can be sure he's not...
 
+Создайте программу, которая фильтрует список строк и возвращает список, содержащий только имена ваших друзей. 
+Если в имени ровно 4 буквы, можете быть уверены, что оно должно быть вашим другом! В противном случае, вы можете 
+быть уверены, что он не...
+
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+'''
+def friend(x):
+    return [x for x in x if len(x) == 4]
+
+print(friend(["Ryan", "Kieran", "Jason", "Yous"])) # ["Ryan", "Yous"]
 # ***********************************************************************************************************************
 ### *** (6 kyu) *** ###
 # ***********************************************************************************************************************
