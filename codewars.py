@@ -27,6 +27,7 @@
     15) Sum of two lowest positive integers (Сумма двух наименьших положительных целых чисел)
     16) Beginner Series #3 Sum of Numbers (Серия для начинающих №3 Сумма чисел)
     17) Two to One
+    18)
 
 
 (6 kyu)
