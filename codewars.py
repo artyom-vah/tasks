@@ -45,6 +45,8 @@
     10) Duplicate Encoder (Дублирующий кодировщик)
     11) Take a Ten Minutes Walk - 'не сделал'
     12) Replace With Alphabet Position (Заменить позицией в алфавитном порядке)
+    13) Persistent Bugger (Настойчивый негодник)
+
 
 
 
@@ -1077,6 +1079,34 @@ print(alphabet_position("The sunset sets at twelve o' clock."))
 # 20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11
 
 # ***********************************************************************************************************************
+'''
+(6 kyu)
+
+13) Persistent Bugger (Настойчивый негодник)
+Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, 
+which is the number of times you must multiply the digits in num until you reach a single digit.
+Напишите функцию persistence, которая принимает положительный параметр num и возвращает его мультипликативную стойкость,
+то есть количество раз, которое вы должны умножить на num, пока не получите одну цифру. 
+
+Например 
+For example (Input --> Output):
+
+39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
+4 --> 0 (because 4 is already a one-digit number)
+'''
+def persistence(n):
+    if n < 10:
+        return 0
+    proiz = 1
+    for i in str(n):
+        proiz *= int(i)
+    return 1 + persistence(proiz)
+
+
+print(persistence(39))  # 3
+print(persistence(999))  # 4
+print(persistence(4))  # 0
 
 # ***********************************************************************************************************************
 
