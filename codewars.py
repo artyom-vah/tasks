@@ -46,6 +46,8 @@
     11) Take a Ten Minutes Walk - 'не сделал'
     12) Replace With Alphabet Position (Заменить позицией в алфавитном порядке)
     13) Persistent Bugger (Настойчивый негодник)
+    14) Your order, please
+
 
 
 
@@ -1109,6 +1111,35 @@ print(persistence(999))  # 4
 print(persistence(4))  # 0
 
 # ***********************************************************************************************************************
+'''(6 kyu)
+
+14) Your order, please
+Your task is to sort a given string. Each word in the string will contain a single number. 
+This number is the position the word should have in the result.
+Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+If the input string is empty, return an empty string. The words in the input String will only contain valid 
+consecutive numbers.
+
+Ваша задача — отсортировать заданную строку. Каждое слово в строке будет содержать одно число. Это число — позиция,
+ которую слово должно занимать в результате.
+
+"is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+"4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+""  -->  ""
+'''
+
+def order(sentence):
+    l = []
+    for i in range(len(sentence) + 1):
+        for j in sentence.split():
+            if str(i) in j:
+                l.append(j)
+    return ' '.join(l)
+
+
+print(order("is2 Thi1s T4est 3a"))
+print(order("4of Fo1r pe6ople g3ood th5e the2"))
+
 
 # ***********************************************************************************************************************
 
