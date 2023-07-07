@@ -49,7 +49,8 @@
     14) Your order, please
     15) Convert string to camel case - 'не добавил'
     16) Tribonacci Sequence - 'не добавил'
-
+    17) Does my number look big in this? (Мой номер выглядит большим в этом?) - 'не добавил'
+    18) Unique In Order (Уникальность в порядке) - 'не добавил'
 
 
 
