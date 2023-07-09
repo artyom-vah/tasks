@@ -51,6 +51,8 @@
     16) Tribonacci Sequence - 'не добавил'
     17) Does my number look big in this? (Мой номер выглядит большим в этом?) - 'не добавил'
     18) Unique In Order (Уникальность в порядке) - 'не добавил'
+    19) Find the unique number (Найдите уникальный номер)
+
 
 
 
@@ -1146,7 +1148,27 @@ print(order("4of Fo1r pe6ople g3ood th5e the2"))
 
 
 # ***********************************************************************************************************************
+'''
+(6 kyu)
 
+19) There is an array with some numbers. All numbers are equal except for one. Try to find it!
+Есть массив с некоторыми числами. Все числа равны, кроме одного. Попробуйте найти!
+
+find_uniq([ 1, 1, 1, 2, 1, 1 ]) == 2
+find_uniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
+'''
+def find_uniq(arr):
+    l = []
+    for i in set(arr):
+        if arr.count(i) == 1:
+            l.append(i)
+    return l[0]
+    # return [i for i in set(arr) if arr.count(i) == 1][0]
+
+
+print(find_uniq([1, 1, 1, 2, 1, 1]))
+print(find_uniq([0, 0, 0.55, 0, 0]))
+print(find_uniq([3, 10, 3, 3, 3]))
 # ***********************************************************************************************************************
 ### *** (5 kyu) *** ###
 
