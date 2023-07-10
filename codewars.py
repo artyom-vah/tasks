@@ -58,7 +58,9 @@
 
 
 (5 kyu)
-    1) Human Readable Time (Человекочитаемое время)
+    1) Moving Zeros To The End (Перемещение нулей в конец)
+
+    3) Human Readable Time (Человекочитаемое время)
 
 '''
 # ***********************************************************************************************************************
@@ -1171,7 +1173,7 @@ print(find_uniq([3, 10, 3, 3, 3]))
 # ***********************************************************************************************************************
 '''
 (5 kyu)
-1) Human Readable Time (Человекочитаемое время)
+3) Human Readable Time (Человекочитаемое время)
 
 Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
 HH = hours, padded to 2 digits, range: 00 - 99
