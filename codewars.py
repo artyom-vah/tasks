@@ -647,6 +647,7 @@ def longest(a1, a2):
 def longest(a1, a2):
     return ''.join(sorted(set([i for i in (a1 + a2)])))
 
+
 # ***********************************************************************************************************************
 '''
    (7 kyu)
@@ -1100,6 +1101,8 @@ For example (Input --> Output):
 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
 4 --> 0 (because 4 is already a one-digit number)
 '''
+
+
 def persistence(n):
     if n < 10:
         return 0
@@ -1131,6 +1134,7 @@ consecutive numbers.
 ""  -->  ""
 '''
 
+
 def order(sentence):
     l = []
     for i in range(len(sentence) + 1):
@@ -1143,7 +1147,6 @@ def order(sentence):
 print(order("is2 Thi1s T4est 3a"))
 print(order("4of Fo1r pe6ople g3ood th5e the2"))
 
-
 # ***********************************************************************************************************************
 '''
 (6 kyu)
@@ -1154,6 +1157,8 @@ print(order("4of Fo1r pe6ople g3ood th5e the2"))
 find_uniq([ 1, 1, 1, 2, 1, 1 ]) == 2
 find_uniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
 '''
+
+
 def find_uniq(arr):
     l = []
     for i in set(arr):
@@ -1173,7 +1178,11 @@ print(find_uniq([3, 10, 3, 3, 3]))
 (5 kyu)
 
 1) Moving Zeros To The End
+Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+Напишите алгоритм, который берет массив и перемещает все нули в конец, сохраняя порядок остальных элементов.
 '''
+
+
 def move_zeros(lst):
     return [i for i in lst if i != 0] + [i for i in lst if i == 0]
 
@@ -1217,6 +1226,7 @@ print(make_readable(5))  # 00:00:05
 print(make_readable(60))  # 00:01:00
 print(make_readable(86399))  # 23:59:59
 print(make_readable(359999))  # 99:59:59
+
 
 ################## *** Вариант 2 *** ##################
 def make_readable(n):
