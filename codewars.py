@@ -61,6 +61,8 @@
     1) Moving Zeros To The End (Перемещение нулей в конец)
     2) Simple Pig Latin
     3) Human Readable Time (Человекочитаемое время)
+    4) RGB To Hex Conversion (Преобразование RGB в шестнадцатеричный формат)
+
 
 '''
 # ***********************************************************************************************************************
@@ -1275,6 +1277,47 @@ def make_readable(seconds):
 print(make_readable(200))  # 00:03:20
 
 # ***********************************************************************************************************************
+'''
+(5 kyu)
+4) RGB To Hex Conversion (Преобразование RGB в шестнадцатеричный формат)
+The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal
+representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range 
+must be rounded to the closest valid value.
+Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
+
+Функция rgb является неполной. Завершите его так, чтобы передача десятичных значений RGB привела к возвращению
+шестнадцатеричного представления. Допустимыми десятичными значениями для RGB являются 0 - 255. Любые значения, 
+выходящие за пределы этого диапазона, должны быть округлены до ближайшего допустимого значения.
+
+Примечание: Ваш ответ всегда должен содержать 6 символов, сокращение с 3 здесь не сработает.
+
+
+The following are examples of expected output values:
+Ниже приведены примеры ожидаемых выходных значений:
+'''
+
+
+def funk(num):
+    if num <= 0:
+        return '00'
+    if num >= 255:
+        return 'FF'
+    if len(hex(num)[2:]) == 2:
+        return hex(num)[2:].upper()
+    else:
+        return '0' + hex(num)[2:].upper()
+
+
+def rgb(r, g, b):
+    return funk(r) + funk(g) + funk(b)
+
+
+print(rgb(0, 0, 0))  # 000000
+print(rgb(255, 255, 255))  # FFFFFF
+print(rgb(255, 255, 300))  # FFFFFF
+print(rgb(148, 0, 211))  # 9400D3
+print(rgb(0, 1, 2))  # 000102
+
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
 ################## *** Вариант 2 *** ##################
