@@ -59,7 +59,7 @@
 
 (5 kyu)
     1) Moving Zeros To The End (Перемещение нулей в конец)
-
+    2) Simple Pig Latin
     3) Human Readable Time (Человекочитаемое время)
 
 '''
@@ -1172,12 +1172,14 @@ print(find_uniq([1, 1, 1, 2, 1, 1]))
 print(find_uniq([0, 0, 0.55, 0, 0]))
 print(find_uniq([3, 10, 3, 3, 3]))
 # ***********************************************************************************************************************
+
+
 ### *** (5 kyu) *** ###
 # ***********************************************************************************************************************
 '''
 (5 kyu)
 
-1) Moving Zeros To The End
+1) Moving Zeros To The End (Перемещение нулей в конец)
 Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
 Напишите алгоритм, который берет массив и перемещает все нули в конец, сохраняя порядок остальных элементов.
 '''
@@ -1191,7 +1193,36 @@ print(move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]))  # [1, 2, 1, 1, 3, 1, 0, 0, 0,
 print(move_zeros([1, 2, 1, 1, 3, 1, 0, 0, 0, 0]))  # [1, 2, 1, 1, 3, 1, 0, 0, 0, 0]
 
 # ***********************************************************************************************************************
+'''(5 kyu)
 
+2) Simple Pig Latin
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+Переместите первую букву каждого слова в конец, а затем добавьте «ay» в конец слова. Оставьте знаки препинания нетронутыми.
+
+Examples:
+pig_it('Pig latin is cool') # igPay atinlay siay oolcay
+pig_it('Hello world !')     # elloHay orldway !
+'''
+
+
+################## *** Вариант 1 *** ##################
+def pig_it(text):
+    return ' '.join([i[1:] + i[:1] + 'ay' if i.isalpha() else i for i in text.split()])
+
+
+################## *** Вариант 2 *** ##################
+def pig_it(text):
+    l = []
+    for i in text.split():
+        if i.isalpha():
+            l.append(i[1:] + i[:1] + 'ay')
+        else:
+            l.append(i)
+    return ' '.join(l)
+
+
+print(pig_it('Pig latin is cool'))
+print(pig_it('Hello world !'))
 # ***********************************************************************************************************************
 '''
 (5 kyu)
