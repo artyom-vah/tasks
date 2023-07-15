@@ -52,6 +52,8 @@
     17) Does my number look big in this? (Мой номер выглядит большим в этом?) - 'не добавил'
     18) Unique In Order (Уникальность в порядке) - 'не добавил'
     19) Find the unique number (Найдите уникальный номер)
+    20) Find the missing letter (Найдите недостающую букву)
+
 
 
 
@@ -1175,6 +1177,33 @@ print(find_uniq([0, 0, 0.55, 0, 0]))
 print(find_uniq([3, 10, 3, 3, 3]))
 # ***********************************************************************************************************************
 
+
+'''
+20) Find the missing letter (Найдите недостающую букву)
+Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+
+You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+The array will always contain letters in only one case.
+
+Example:
+['a','b','c','d','f'] -> 'e'
+['O','Q','R','S'] -> 'P'
+(Use the English alphabet with 26 letters!)
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+I have also created other katas. Take a look if you enjoyed this kata!
+'''
+
+
+def find_missing_letter(arr):
+    abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    one_elem_arr = abc.find(arr[0])
+    l = abc[one_elem_arr: one_elem_arr + len(arr) + 1]
+    res = [i for i in l if i not in arr]
+    return res[0]
+
+
+print(find_missing_letter(['a', 'b', 'c', 'd', 'f']))  # e
+print(find_missing_letter(['O', 'Q', 'R', 'S']))  # p
 
 ### *** (5 kyu) *** ###
 # ***********************************************************************************************************************
