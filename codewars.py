@@ -1349,8 +1349,8 @@ print(rgb(255, 255, 300))  # FFFFFF
 print(rgb(148, 0, 211))  # 9400D3
 print(rgb(0, 1, 2))  # 000102
 
-
 '''
+(5 kyu)
 5) Maximum subarray sum (Максимальная сумма подмассива)
 
 The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
@@ -1366,6 +1366,21 @@ max_sequence максимальная последовательность([-2, 
 Считается, что пустой список имеет нулевую наибольшую сумму. Обратите внимание, что пустой список или массив также является допустимым подсписком/подмассивом.
 '''
 
+
+def max_sequence(arr):
+    max = 0
+    cur = 0
+    for i in arr:
+        cur += i
+        if cur < 0:
+            cur = 0
+        if cur > max:
+            max = cur
+    return max
+
+
+print(max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))  # 6
+print(max_sequence([-2, -1, -3, -4, -1, -2, -1, -5, -4]))  # 0
 
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
