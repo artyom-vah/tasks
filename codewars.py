@@ -64,6 +64,7 @@
     2) Simple Pig Latin
     3) Human Readable Time (Человекочитаемое время)
     4) RGB To Hex Conversion (Преобразование RGB в шестнадцатеричный формат)
+    5) Maximum subarray sum (Максимальная сумма подмассива)
 
 
 '''
@@ -1188,6 +1189,7 @@ The array will always contain letters in only one case.
 Example:
 ['a','b','c','d','f'] -> 'e'
 ['O','Q','R','S'] -> 'P'
+
 (Use the English alphabet with 26 letters!)
 Have fun coding it and please don't forget to vote and rank this kata! :-)
 I have also created other katas. Take a look if you enjoyed this kata!
@@ -1346,6 +1348,24 @@ print(rgb(255, 255, 255))  # FFFFFF
 print(rgb(255, 255, 300))  # FFFFFF
 print(rgb(148, 0, 211))  # 9400D3
 print(rgb(0, 1, 2))  # 000102
+
+
+'''
+5) Maximum subarray sum (Максимальная сумма подмассива)
+
+The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
+max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+# should be 6: [4, -1, 2, 1]
+Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array. If the list is made up of only negative numbers, return 0 instead.
+Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
+
+Задача подмассива с максимальной суммой состоит в нахождении максимальной суммы непрерывной подпоследовательности в массиве или списке целых чисел:
+max_sequence максимальная последовательность([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+# должно быть 6: [4, -1, 2, 1]
+Простой случай - это когда список состоит только из положительных чисел, а максимальная сумма равна сумме всего массива. Если список состоит только из отрицательных чисел, верните вместо них 0.
+Считается, что пустой список имеет нулевую наибольшую сумму. Обратите внимание, что пустой список или массив также является допустимым подсписком/подмассивом.
+'''
+
 
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
