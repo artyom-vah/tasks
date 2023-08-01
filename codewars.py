@@ -67,6 +67,7 @@
     5) Maximum subarray sum (Максимальная сумма подмассива)
     6) Valid Parentheses (Допустимые скобки)
     7) Directions Reduction (Направления Сокращение)
+    8) Calculating with Functions (Расчет с функциями)
 
 
 '''
@@ -1440,7 +1441,7 @@ print(valid_parentheses(")("))  # False
 # ***********************************************************************************************************************
 '''
 (5 kyu)
-7) Directions Reduction (Сокращение направлений)
+7) Directions Reduction (Направления Сокращение)
 … a man was given directions to go from one point to another. The directions were "NORTH", "SOUTH", "WEST", "EAST".
 Clearly "NORTH" and "SOUTH" are opposite, "WEST" and "EAST" too.
 
@@ -1473,6 +1474,40 @@ def dirReduc(arr):
 
 
 print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))  # ['WEST']
+
+# ***********************************************************************************************************************
+
+'''
+(5 kyu)
+8) Calculating with Functions (Расчет с функциями)
+This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+На этот раз мы хотим написать вычисления с использованием функций и получить результаты. Давайте посмотрим на некоторые примеры:
+
+seven(times(five())) # must return 35
+four(plus(nine())) # must return 13
+eight(minus(three())) # must return 5
+six(divided_by(two())) # must return 3
+'''
+def zero(param=None): return 0 if param is None else int(param(0))
+def one(param=None): return 1 if param is None else int(param(1))
+def two(param=None): return 2 if param is None else int(param(2))
+def three(param=None): return 3 if param is None else int(param(3))
+def four(param=None): return 4 if param is None else int(param(4))
+def five(param=None): return 5 if param is None else int(param(5))
+def six(param=None): return 6 if param is None else int(param(6))
+def seven(param=None): return 7 if param is None else int(param(7))
+def eight(param=None): return 8 if param is None else int(param(8))
+def nine(param=None): return 9 if param is None else int(param(9))
+
+
+def plus(i): return lambda x: x+i
+def minus(i): return lambda x: x-i
+def times(i): return lambda x: x*i
+def divided_by(i): return lambda x: x//i
+
+print(seven(times(five()))) # 35
+print(four(plus(three()))) # 7
+print(eight(minus(three()))) # 5
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
