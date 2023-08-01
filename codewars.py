@@ -66,6 +66,7 @@
     4) RGB To Hex Conversion (Преобразование RGB в шестнадцатеричный формат)
     5) Maximum subarray sum (Максимальная сумма подмассива)
     6) Valid Parentheses (Допустимые скобки)
+    7) Directions Reduction (Направления Сокращение)
 
 
 '''
@@ -1386,7 +1387,7 @@ print(max_sequence([-2, -1, -3, -4, -1, -2, -1, -5, -4]))  # 0
 
 '''
 (5 kyu)
-6) Valid Parentheses(Допустимые скобки)
+6) Valid Parentheses (Допустимые скобки)
 Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. 
 The function should return true if the string is valid, and false if it's invalid.
 
@@ -1436,6 +1437,42 @@ print(valid_parentheses("(()())()"))  # True
 print(valid_parentheses("()(())((()))(())()"))  # True
 print(valid_parentheses("())(()"))  # False
 print(valid_parentheses(")("))  # False
+# ***********************************************************************************************************************
+'''
+(5 kyu)
+7) Directions Reduction (Сокращение направлений)
+… a man was given directions to go from one point to another. The directions were "NORTH", "SOUTH", "WEST", "EAST".
+Clearly "NORTH" and "SOUTH" are opposite, "WEST" and "EAST" too.
+
+Going to one direction and coming back the opposite direction right away is a needless effort. 
+Since this is the wild west, with dreadful weather and not much water, it's important to save yourself some energy, 
+otherwise you might die of thirst!
+
+...мужчине дали указания, как добраться из одной точки в другую. Направления были "СЕВЕР", "ЮГ", "ЗАПАД", "ВОСТОК".
+Очевидно, что "СЕВЕР" и "ЮГ" противоположны, "ЗАПАД" и "ВОСТОК" тоже.
+
+Идти в одном направлении и сразу же возвращаться в противоположном - ненужное усилие.
+Поскольку это дикий Запад, с ужасной погодой и небольшим количеством воды, важно поберечь немного энергии,
+иначе вы можете умереть от жажды!
+
+NORTH	СЕВЕР
+SOUTH	ЮГ
+	
+WEST	запад
+EAST	восток
+'''
+
+
+def dirReduc(arr):
+    d = {"NORTH": "SOUTH", "SOUTH": "NORTH", "WEST": "EAST", "EAST": "WEST"}
+    for i in range(len(arr) - 1):
+        if d[arr[i]] == arr[i + 1]:
+            del arr[i: i + 2]
+            return dirReduc(arr)
+    return arr
+
+
+print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))  # ['WEST']
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
