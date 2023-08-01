@@ -1400,6 +1400,7 @@ The function should return true if the string is valid, and false if it's invali
 '''
 
 
+################## *** Вариант 1 *** ##################
 def valid_parentheses(string):
     res = []
     for i in string:
@@ -1414,6 +1415,19 @@ def valid_parentheses(string):
     if len(res) == 0:
         return True
     return False
+
+
+################## *** Вариант 2 *** ##################
+def valid_parentheses(string):
+    cnt = 0
+    for i in string:
+        if i == '(':
+            cnt += 1
+        if i == ')':
+            cnt -= 1
+        if cnt < 0:
+            return False
+    return cnt == 0
 
 
 print(valid_parentheses("()"))  # True
