@@ -1398,6 +1398,8 @@ The function should return true if the string is valid, and false if it's invali
 "("               =>  false
 "(())((()())())"  =>  true
 '''
+
+
 def valid_parentheses(string):
     res = []
     for i in string:
