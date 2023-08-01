@@ -1505,9 +1505,10 @@ def minus(i): return lambda x: x-i
 def times(i): return lambda x: x*i
 def divided_by(i): return lambda x: x//i
 
-print(seven(times(five()))) # 35
-print(four(plus(three()))) # 7
-print(eight(minus(three()))) # 5
+
+print(seven(times(five())))  # 35
+print(four(plus(three())))  # 7
+print(eight(minus(three())))  # 5
 
 # ***********************************************************************************************************************
 # ***********************************************************************************************************************
