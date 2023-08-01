@@ -65,6 +65,7 @@
     3) Human Readable Time (Человекочитаемое время)
     4) RGB To Hex Conversion (Преобразование RGB в шестнадцатеричный формат)
     5) Maximum subarray sum (Максимальная сумма подмассива)
+    6) Valid Parentheses (Допустимые скобки)
 
 
 '''
@@ -1348,7 +1349,7 @@ print(rgb(255, 255, 255))  # FFFFFF
 print(rgb(255, 255, 300))  # FFFFFF
 print(rgb(148, 0, 211))  # 9400D3
 print(rgb(0, 1, 2))  # 000102
-
+# ***********************************************************************************************************************
 '''
 (5 kyu)
 5) Maximum subarray sum (Максимальная сумма подмассива)
@@ -1381,7 +1382,46 @@ def max_sequence(arr):
 
 print(max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))  # 6
 print(max_sequence([-2, -1, -3, -4, -1, -2, -1, -5, -4]))  # 0
+# ***********************************************************************************************************************
 
+'''
+(5 kyu)
+6) Valid Parentheses(Допустимые скобки)
+Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. 
+The function should return true if the string is valid, and false if it's invalid.
+
+Напишите функцию, которая принимает строку скобок и определяет, допустим ли порядок скобок. 
+Функция должна возвращать true, если строка допустима, и false, если она недействительна.
+
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true
+'''
+def valid_parentheses(string):
+    res = []
+    for i in string:
+        if i == '(':
+            res.append(i)
+        elif i == ')':
+            try:
+                res.pop()
+            except:
+                return False
+
+    if len(res) == 0:
+        return True
+    return False
+
+
+print(valid_parentheses("()"))  # True
+print(valid_parentheses("()()()"))  # True
+print(valid_parentheses("(()())()"))  # True
+print(valid_parentheses("()(())((()))(())()"))  # True
+print(valid_parentheses("())(()"))  # False
+print(valid_parentheses(")("))  # False
+
+# ***********************************************************************************************************************
 # ***********************************************************************************************************************
 ################## *** Вариант 1 *** ##################
 ################## *** Вариант 2 *** ##################
