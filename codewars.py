@@ -658,9 +658,9 @@ def longest(a1, a2):
 
 # ***********************************************************************************************************************
 '''
-   (7 kyu)
-   
+(7 kyu)   
 18) Friend or Foe? (Друг или враг?)
+
 Make a program that filters a list of strings and returns a list with only your friends name in it.
 If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, 
 you can be sure he's not...
@@ -681,7 +681,8 @@ print(friend(["Ryan", "Kieran", "Jason", "Yous"]))  # ["Ryan", "Yous"]
 
 # ***********************************************************************************************************************
 
-'''    
+'''
+(7 kyu)
 19) Find the next perfect square! (Найдите следующий идеальный квадрат!)
 
 You might know some pretty large perfect squares. But what about the NEXT one?
@@ -713,9 +714,7 @@ print(find_next_square(625))  # 676
 # ***********************************************************************************************************************
 
 ### *** (6 kyu) *** ###
-# ***********************************************************************************************************************
 
-# ***********************************************************************************************************************
 '''
 (6 kyu) 
 1) Multiples of 3 or 5 (Кратные 3 или 5)
