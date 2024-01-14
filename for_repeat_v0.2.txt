@@ -1,0 +1,1047 @@
+import random
+n = 34
+random_numbers = random.sample(range(n+1), 10)
+print(sorted(random_numbers))
+
+************************************************************************
+************************************************************************
+0000)
+'''
+Разворот строки
+s = 'Hello world'
+'''
+-----------
+# вариант 1
+
+ Вариант 1
+s = 'Hello'
+print(s[::-1])
+-----------
+# вариант 2
+s = 'hello'
+print(''.join(reversed(s)))
+
+-----------
+# вариант 3
+str1 = "pythonist"
+res = ''
+for i in str1:
+    res = i + res
+print(res)
+
+************************************************************************
+************************************************************************
+0001)
+'''
+Дан массив, вывести сумму чисел кратных 3 или 5
+Multiples of 3 or 5 (Кратные 3 или 5)
+        test.assert_equals(solution(4), 3)  
+        test.assert_equals(solution(6), 8)
+        test.assert_equals(solution(16), 60)
+'''
+-----------
+# вариант 1
+def solution(n): 
+    l = []
+    for i in range(1, n):
+        if i % 3 == 0 or i % 5 == 0:
+            l.append(i)
+    return sum(l)
+-----------
+# вариант 2
+def solution(n): 
+    return sum([i for i in range(n) if i % 3 == 0 or i % 5 == 0])
+
+************************************************************************
+************************************************************************
+0002)
+'''
+Если >= 5 букв то разворачиваем слово в строке
+"Hey fellow warriors" => returns "Hey wollef sroirraw" 
+"This is a test" => returns "This is a test" 
+"This is another test"=> returns "This is rehtona test"
+'''
+-----------
+# вариант 1
+def spin_words(text):
+    res = ''
+    for word in text.split():
+        if len(word) > 5:
+            res += word[::-1]+' '
+        else:
+            res += word +' '
+    return res[:-1]
+-----------
+# вариант 2
+def spin_words(sentence: str) -> str:
+    l = []
+    for i in sentence.split():
+        if len(i) >= 5:
+            l.append(i[::-1])
+        else:
+            l.append(i)
+    return ' '.join(l)
+-----------
+# вариант 3
+def spin_words(sentence):
+    return " ".join([x[::-1] if len(x) >= 5 else x for x in sentence.split(" ")])
+
+************************************************************************
+************************************************************************
+0003)
+'''
+Find the odd int
+
+В массиве целых чисел найдите то, которое встречается нечетное количество раз.
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+'''
+-----------
+# вариант 1
+def find_it(arr):
+    l = []
+    for i in arr:
+        if arr.count(i) % 2 == 1:
+            l.append(i)
+    return l[0]
+
+-----------
+# вариант 2
+def find_it(seq):
+    return [x for x in seq if seq.count(x) % 2][0]
+
+************************************************************************
+************************************************************************
+0004) 
+'''
+Sum of Digits / Digital Root
+
+    16 --> 1 + 6 = 7
+   942 --> 9 + 4 + 2 = 15  -->  1 + 5 = 6
+132189 --> 1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+493193 --> 4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+'''
+-----------
+# вариант 1
+def digital_root(n):
+    res = sum([int(i) for i in str(n)])
+    if res >= 10:
+        return digital_root(res)
+    return res
+
+-----------
+# вариант 2
+def digital_root(n):
+    res = []
+    while n > 0:
+        res.append(n % 10)
+        n //= 10
+    if sum(res) > 9:
+        return digital_root(sum(res))
+    return sum(res)
+
+************************************************************************
+************************************************************************
+0005)
+'''
+Array.diff
+Вычесть из 1го массива 2й массив
+array_diff([1,2],[1]) == [2]
+array_diff([1,2,2,2,3],[2]) == [1,3]
+'''
+-----------
+# вариант 1
+def array_diff(a, b):
+    return [i for i in a if i not in b]
+
+-----------
+# вариант 2
+def array_diff(a, b):
+    res = []
+    for i in a:
+        if i not in b:
+            res.append(i)
+    return res
+
+************************************************************************
+************************************************************************
+0006)
+'''
+Bit Counting
+The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+'''
+-----------
+# вариант 1
+def count_bits(n):
+    # return bin(n) # 0b10011010010
+    res = []
+    while n > 0:
+        res.append(str(n % 2))
+        n//=2
+    return res[::-1].count('1')
+
+-----------
+# вариант 2
+def count_bits(n):
+    return bin(n).count('1')
+
+-----------
+# вариант 3
+countBits = lambda n: bin(n).count('1')
+
+************************************************************************
+************************************************************************
+0007)
+'''
+Find The Parity Outlier
+[2, 4, 0, 100, 4, 11, 2602, 36] --> 11 (the only odd number - единственное нечетное число)
+[160, 3, 1719, 19, 11, 13, -21] --> 160 (the only even number - единственное четное число)
+'''
+-----------
+# вариант 1
+def find_outlier(integers):
+    l1 = [i for i in integers if i % 2 == 0]
+    l2 = [i for i in integers if i % 2 == 1]
+    if len(l1) < len(l2):
+        return l1[0]
+    return l2[0]
+
+
+************************************************************************
+************************************************************************
+0008)
+'''
+Counting Duplicates
+
+Example
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"indivisibility" -> 1 # 'i' occurs six times
+"Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice
+'''
+-----------
+# вариант 1
+def duplicate_count(text):    
+    text = text.lower()
+    return len({i:text.count(i) for i in text if text.count(i) if text.count(i) > 1})
+
+-----------
+# вариант 2
+from collections import Counter
+
+def duplicate_count(text):
+    counter = Counter(text.lower())
+    return len([counter.keys() for i in counter.values() if i>1])
+
+-----------
+# вариант 3
+def duplicate_count(text):
+    text = text.lower()
+    d = set([i for i in text if text.count(i) > 1])
+    return len(d)
+
+************************************************************************
+************************************************************************
+0008)
+'''
+тензор
+our_str = "1 один 29 304 два три 5 6 78"
+print(check(our_str, 3)) # 5 6 78
+'''
+-----------
+# вариант 1
+def check(stroka, k):
+    res = []
+    for i in stroka.split():
+        if i.isdigit():
+            res.append(i)
+        else:
+            res = []
+        if len(res) == k:
+            return ' '.join(res)
+
+
+our_str = "1 один 29 304 два три 5 6 78"
+print(check(our_str, 2)) # 5 6 78
+
+
+************************************************************************
+************************************************************************
+0009)
+'''
+FizzBuzz
+'''
+-----------
+# вариант 1
+for i in range(1, 20):
+    res = ''
+    if i % 3 == 0:
+        res += 'Fizz'
+    if i % 5 == 0:
+        res += 'Buzz'
+    if res == '':
+        res = i
+    print(res)
+
+-----------
+# вариант 2
+class Solution:
+
+    def fizzBuzz(self, n: int) -> list[str]:
+        l = []
+        for i in range(1, n+1):
+            res = ''
+            if i % 3 == 0:
+                res += 'Fizz'
+            if i % 5 == 0:
+                res += 'Buzz'
+            if res == '':
+                res = str(i)
+            l.append(res)
+        return l
+
+obj = Solution()
+print(obj.fizzBuzz(20)) # ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']
+
+************************************************************************
+************************************************************************
+00010)
+Duplicate Encoder
+'''
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+'''
+-----------
+# вариант 1
+
+def duplicate_encode(word):
+    word = word.lower()
+    res = []
+    for i in word:
+        if word.count(i) == 1:
+            res.append('(')
+        else:
+            res.append(')')
+    return ''.join(res)
+
+
+-----------
+# вариант 2
+def duplicate_encode(word):
+    res = ''
+    word = word.lower()
+    for i in word:
+        if word.count(i) == 1:
+            res += '('
+        else:
+            res += ')'
+    return res
+
+************************************************************************
+************************************************************************
+00011)
+Replace With Alphabet Position
+'''
+"The sunset sets at twelve o' clock." ->
+"20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+'''
+-----------
+# вариант 1
+from string import ascii_lowercase
+
+def alphabet_position(text):
+    d = {letter:str(i) for i, letter in enumerate(ascii_lowercase,1)}
+    l = []
+    for i in text.lower():
+        if i.isalpha():
+            l.append(d.get(i))
+    return ' '.join(l)
+-----------
+# вариант 2
+
+def alphabet_position(text):
+    text = text.lower()
+    res = []
+    for i in text:
+        if i.isalpha():
+            res.append(str(ord(i)-ord('a')+1))
+    return ' '.join(res)
+
+
+************************************************************************
+************************************************************************
+00012)
+'''
+простое число это число которое имеет 2 делителя, т.е. делится только на 1 и на само себя
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103,
+'''
+-----------
+# вариант 1
+def funk(number):
+    prost = []
+    ne_prost = []
+    cnt = 0
+    for i in range(1, number + 1):
+        if number % i == 0:
+            cnt += 1
+            prost.append(i)
+            ne_prost.append(i)
+    if cnt == 2:
+        return f"Число простое, имеет 2 делителя:{prost}"
+    return f"Число непростое,имеет делители: {ne_prost}"
+
+-----------
+# вариант 2
+def funk(number):
+    res = []
+    for i in range(1,number+1):
+        if number % i == 0:
+            res.append(i)
+    if len(res) == 2:
+        return 'Число простое'
+    return 'Число непростое'
+
+
+-----------
+# вариант 3
+# вывести список простых чисел от 1 до 100
+for number in range(1, 100 + 1):
+    if number > 1:
+        for i in range(2, number):
+            if(number % i) == 0:
+                break
+        else:
+            print(number) 
+
+-----------
+# вариант 4
+a = []
+n = 1000
+for i in range(2, n + 1):
+    k = 0
+    for j in range(1, i + 1):
+        if i % j == 0:
+            k += 1
+    if k == 2:
+        a.append(i)
+
+print(len(a))
+print(a, end=' ')
+
+
+************************************************************************
+************************************************************************
+00013)
+'''
+39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
+4 --> 0 (because 4 is already a one-digit number)
+'''
+
+-----------
+# вариант 1
+def persistence(n):
+    if n < 10:
+        return 0
+    proiz = 1
+    for i in str(n):
+        proiz *= int(i)
+    return 1 + persistence(proiz)
+
+
+************************************************************************
+************************************************************************
+00014) Convert string to camel case
+
+'''
+Examples
+"the-stealth-warrior" -> "theStealthWarrior"
+"The_Stealth_Warrior" -> "TheStealthWarrior"
+"The_Stealth-Warrior" -> "TheStealthWarrior"
+'''
+-----------
+# вариант 1
+def to_camel_case(text):
+    text = text.replace('-', ' ').replace('_', ' ').split()
+    res = []
+    for i in text:
+        res.append(i.capitalize())
+    return text[0] + ''.join(res[1:]) if text else ''
+
+-----------
+# вариант 2
+def to_camel_case(text):
+    words = text.replace('_', '-').split('-')
+    return words[0] + ''.join([x.title() for x in words[1:]])
+
+************************************************************************
+************************************************************************
+00015) 
+
+'''
+"is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+"4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+""  -->  ""
+'''
+-----------
+# вариант 1
+def order(sentence):
+    l = []
+    for i in range(len(sentence) + 1):
+        for j in sentence.split():
+            if str(i) in j:
+                l.append(j)
+    return ' '.join(l)
+
+************************************************************************
+************************************************************************
+00016) 
+'''
+Линейный и бинарный поиск
+[10, 3, 8, 4, 9, 0, 23, 1, 20, 17]
+
+'''
+-----------
+# вариант 1
+def linear_search(lst, guess):
+    for i in lst:
+        if lst[i] == guess: # if guess == a[i]: # так тоже можно, тоже самое
+            return f"Индекс элемента которого вы ищете {i}"
+
+-----------
+# вариант 2
+import random
+
+def binary_search(arr):
+    guess = int(input('enter a number: '))
+    left = 0
+    right = len(arr) - 1
+    while left <= right:
+        mid = (right + left) // 2
+        if guess > arr[mid]:
+            left = mid + 1
+        elif guess < arr[mid]:
+            right = mid - 1
+        else:
+            return mid
+************************************************************************
+************************************************************************
+00017) 
+'''
+'''
+def bubble_sort(lst):
+    count = 0  # счетчик количества итерации
+    for i in range(len(lst) - 1):
+        for j in range(len(lst) - i - 1):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+                count += 1
+                # print(count, lst)
+    return f'Исходный массив состоит {len(lst)} '\
+           f' Количество итераций составляет: {count}  \n'\
+           f'Отсортированный массив: {lst}'
+
+
+LEN_ARRAY = 10
+array = [randint(0, 100) for i in range(LEN_ARRAY)]
+print(f'Исходный массив:\n **{array}**')
+print(bubble_sort(array))
+
+************************************************************************
+************************************************************************
+00018) 
+'''
+Быстрая сортировка (с использованием доп памяти),
+
+import random
+l = [random.randint(1, 100) for i in range(10)]
+print(l)
+'''
+-----------
+# вариант 1
+import random
+
+size = 10
+array = [i for i in range(size)]
+random.shuffle(array)
+print(array)
+
+def quick_sort(array):
+    if len(array) <= 1:
+       return array
+
+    pivot = random.choice(array)  # опорный элемент
+    begin_array = []
+    middle_array = []
+    end_array = []
+
+    for i in array:
+        if i < pivot:
+            begin_array.append(i)
+        elif i == pivot:
+            middle_array.append(i)
+        elif i > pivot:
+            end_array.append(i)
+        else:
+            raise Exception('что-то пошло не так!')
+    print(begin_array, middle_array, end_array)
+    return quick_sort(begin_array) + middle_array + quick_sort(end_array)
+-----------
+# вариант 2
+def quick_sort(array):
+    if len(array) <= 1:
+        return array
+    pivot = array[len(array) // 2]
+    left = [x for x in array if x < pivot]
+    middle = [x for x in array if x == pivot]
+    right = [x for x in array if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+
+array_new = quick_sort(array)
+print(array_new)
+************************************************************************
+************************************************************************
+00019)
+'''
+Does my number look big in this?
+For example, take 153 (3 digits), which is narcissistic:
+    1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153 return True
+
+and 1652 (4 digits), which isn't:
+    1^4 + 6^4 + 5^4 + 2^4 = 1 + 1296 + 625 + 16 = 1938  return False
+'''
+-----------
+# вариант 1
+def narcissistic( value ):
+    l = [int(i) for i in str(value)]
+    res = sum([i ** (len(str(value))) for i in l])
+    return True if res == value else False
+
+************************************************************************
+************************************************************************
+00020) 
+'''
+Two Sum
+
+Example 1:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Example 2:
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Example 3:
+Input: nums = [3,3], target = 6
+Output: [0,1] 
+'''
+
+-----------
+# вариант 1
+class Solution:
+    def twoSum(self, arr, target):
+        for i in range(0, len(arr)):
+            for j in range(i + 1, len(arr)):
+                if arr[i] + arr[j] == target:
+                    return [i, j]
+
+-----------
+# вариант 2
+class Solution(object):
+    def twoSum(self, arr, target):# target - сумма элементов
+        # создаем словарь для хранения дополнений элементов массива к целевому значению
+        dict_save_el = {}
+        # перебираем все элементы массива с их индексами
+        for i, num in enumerate(arr):
+            # считаем дополнение текущего элемента к целевому значению
+            element = target - num
+            # проверяем, есть ли уже в словаре дополнение этого элемента
+            if element in dict_save_el:
+                # если есть, возвращаем массив с индексами двух элементов
+                return [dict_save_el[element], i]
+            # иначе добавляем новый элемент в словарь
+            dict_save_el[num] = i
+        # если дошли до конца массива, не находя нужные числа, возвращаем пустой массив
+        return []
+
+************************************************************************
+************************************************************************
+00021) 
+'''
+Unique In Order
+
+unique_in_order('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+unique_in_order('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+unique_in_order([1, 2, 2, 3, 3])   == [1, 2, 3]
+unique_in_order((1, 2, 2, 3, 3))   == [1, 2, 3]
+'''
+
+-----------
+# вариант 1
+def unique_in_order(sequence):
+    l = []
+    for i in range(len(sequence)):
+        if i == 0 or sequence[i] != sequence[i - 1]:
+            l.append(sequence[i])
+    return l
+
+************************************************************************
+************************************************************************
+00022) 
+'''
+Detect Pangram
+
+"The quick, brown fox jumps over the lazy dog!" -> True
+"Should return false for not a pangram" -> False
+
+abc = 'abcdefghijklmnopqrstuvwxyz'
+'''
+-----------
+# вариант 1
+def is_pangram(text):
+    text = ''.join(sorted(set([i for i in text.lower() if i.isalpha()])))
+    abc = 'abcdefghijklmnopqrstuvwxyz'
+    return text == abc
+
+print(is_pangram('The quick, brown fox jumps over the lazy dog!'))
+
+
+************************************************************************
+************************************************************************
+00023) 
+'''
+Find the unique number
+find_uniq([ 1, 1, 1, 2, 1, 1 ]) == 2
+find_uniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
+'''
+-----------
+# вариант 1
+def find_uniq(arr):
+    l = []
+    for i in set(arr):
+        if arr.count(i) == 1:
+            l.append(i)
+    return l[0]
+
+
+print(find_uniq([1, 1, 1, 2, 1, 1]))
+print(find_uniq([0, 0, 0.55, 0, 0]))
+print(find_uniq([3, 10, 3, 3, 3]))
+
+
+
+************************************************************************
+************************************************************************
+00024) 
+'''
+Find the missing letter
+
+['a','b','c','d','f'] -> 'e'
+['O','Q','R','S'] -> 'P'
+
+abc = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+'''
+
+def find_missing_letter(chars):
+    abc = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    l = abc.find(chars[0])
+    r = l + len(chars) + 1
+    for i in abc[l:r]:
+        if i not in chars:
+            return i
+
+
+print(find_missing_letter(['a','b','c','d','f']))
+print(find_missing_letter(['O','Q','R','S'])
+
+************************************************************************
+************************************************************************
+00025)
+
+'''
+Трибоначи
+
+The Tribonacci sequence Tn is defined as follows: 
+T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
+Given n, return the value of Tn.
+
+Example 1:
+Input: n = 4 
+Output: 4
+Explanation:
+T_3 = 0 + 1 + 1 = 2
+T_4 = 1 + 1 + 2 = 4
+
+Example 2:
+Input: n = 25
+Output: 1389537
+
+'''
+-----------
+# вариант 1
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        f1, f2, f3 = 0, 1, 1
+        l = [f1, f2, f3]
+        if n < 3:
+            return l[n]
+        for i in range(3, n + 1):
+            f1, f2, f3 = f2, f3, f1 + f2 + f3
+            l.append(f3)
+        return l[-1]
+
+
+obj = Solution()
+print(obj.tribonacci(2))
+
+************************************************************************
+************************************************************************
+00026)
+
+'''
+101.(leetcode) Valid Parentheses 
+Example 1: 
+Input: s = "()" 
+Output: true 
+ 
+Example 2: 
+Input: s = "()[]{}" 
+Output: true 
+ 
+Example 3: 
+Input: s = "(]" 
+Output: false 
+
+'''
+-----------
+# вариант 1
+def isValid(s: str) -> bool:
+    d = {'(': ')', '[': ']', '{': '}'}
+    l = []
+    for i in s:
+        if i in d.keys():
+            l.append(i)
+        else:
+            if l == []:
+                return False
+            if i != d[l.pop()]:
+                return False
+    return l == []
+
+
+print(isValid('(])'))  # False
+print(isValid('(гшщз]нг)'))  # False
+print(isValid('()[]{}'))  # True
+
+************************************************************************
+************************************************************************
+00027)
+
+'''
+Moving Zeros To The End
+[1, 0, 1, 2, 0, 1, 3] --> [1, 1, 2, 1, 3, 0, 0]
+'''
+-----------
+# вариант 1
+def move_zeros(lst):
+    return [i for i in lst if i != 0] + [i for i in lst if i == 0]
+
+-----------
+# вариант 2
+def move_zeros(array):
+    for i in array:
+        if i == 0:
+            array.remove(i) # Remove the element from the array
+            array.append(i) # Append the element to the end
+    return array
+-----------
+# вариант 3
+def move_zeros(arr):
+    sorted(arr, key=lambda x:x==0)
+
+
+************************************************************************
+************************************************************************
+00028)
+
+'''
+Simple Pig Latin
+
+'Pig latin is cool' --> igPay atinlay siay oolcay
+'Hello world !' --> elloHay orldway !
+
+'''
+-----------
+# вариант 1
+def pig_it(text):
+    l = []
+    for i in text.split():
+        if i.isalpha():
+            l.append(i[1:] + i[:1] + 'ay')
+        else:
+            l.append(i)
+    return ' '.join(l)
+
+
+print(pig_it('Pig latin is cool'))
+print(pig_it('Hello world !'))
+
+-----------
+# вариант 1
+def pig_it(text):
+       return ' '.join([i[1:] + i[:1] +'ay' if i.isalpha() else i for i in text.split()])
+
+
+************************************************************************
+************************************************************************
+00029)
+'''
+Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+
+HH = hours, padded to 2 digits, range: 00 - 99
+MM = minutes, padded to 2 digits, range: 00 - 59
+SS = seconds, padded to 2 digits, range: 00 - 59
+The maximum time never exceeds 359999 (99:59:59)
+'''
+
+def make_readable(seconds):
+    h = seconds // 3600
+    m = seconds % 3600 // 60
+    s = seconds % 3600 % 60
+    return f'{h:02d}:{m:02d}:{s:02d}'
+
+
+print(make_readable(0))  # 00:00:00
+print(make_readable(5))  # 00:00:05
+print(make_readable(60))  # 00:01:00
+print(make_readable(86399))  # 23:59:59
+print(make_readable(359999))  # 99:59:59
+
+
+************************************************************************
+************************************************************************
+00030)
+'''
+Input: 42145 Output: 54421
+Input: 145263 Output: 654321
+Input: 123456789 Output: 987654321
+'''
+-----------
+# вариант 1
+def descending_order(number):
+    return int(''.join(sorted(str(number),reverse=True)))
+
+-----------
+# вариант 2
+descending_order= lambda n: int(''.join(reversed(sorted(str(n)))))
+************************************************************************
+************************************************************************
+00031)
+'''
+Get the Middle Character
+getMiddle("test") should return "es"
+getMiddle("testing") should return "t"
+getMiddle("middle") should return "dd"
+getMiddle("A") should return "A"
+'''
+-----------
+# вариант 1
+def get_middle(s):
+    if len(s) % 2 == 1:
+        return s[len(s) // 2]
+    return s[len(s) // 2 - 1 : len(s) // 2 + 1]
+
+
+************************************************************************
+************************************************************************
+00032)
+'''
+Mumbling
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+'''
+-----------
+# вариант 1
+def accum(text):
+    r = []
+    for i, letter in enumerate(text):
+        r.append(letter.upper() + letter.lower()*i +'-')
+    return ''.join(r)[:-1]
+-----------
+# вариант 2
+def accum(text):
+    r = ''
+    for i, letter in enumerate(text):
+        print(i,letter)
+        r += letter.upper() + letter.lower()*i +'-'
+    return r[:-1]
+************************************************************************
+************************************************************************
+00033)
+'''
+You're a square!
+
+-1  =>  false
+ 0  =>  true
+ 3  =>  false
+ 4  =>  true
+25  =>  true
+26  =>  false
+'''
+-----------
+# вариант 1
+def is_square(n):
+    return True if n >= 0 and n == int(n ** 0.5) * int(n ** 0.5) else False
+
+************************************************************************
+************************************************************************
+00034)
+'''
+
+'''
+************************************************************************
+************************************************************************
+00035)
+'''
+
+'''
+
+
+
+15% -> 0,15
+15.03% -> 0.1503
+0.03% -> 0.0003
+
+149*12*3 = 5364р
+1 300 000 * 0.0003*3 = 1170р
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
